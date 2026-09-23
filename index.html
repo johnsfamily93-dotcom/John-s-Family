@@ -2,90 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Family</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+<title>The Family Link - Contribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;overflow:hidden}
-#loader{position:fixed;inset:0;background:#111;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.8s}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8f6f3;color:#111}
+#loader{position:fixed;inset:0;background:#111;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.7s}
 #loader.hide{transform:translateY(-100%)}
-.bar{width:180px;height:3px;background:#222;border-radius:10px;margin-top:18px;overflow:hidden}
-.prog{height:100%;width:0%;background:#ff5a2c;animation:load 2.2s forwards}@keyframes load{to{width:100%}}
-#lock{position:fixed;inset:0;background:radial-gradient(circle at top,#1e1e1e,#111);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-#lock.show{display:flex}
-.card{max-width:380px;width:100%;background:#fff;color:#111;border-radius:28px;padding:30px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.badge{background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:100px;font-size:11px;letter-spacing:1px;margin-bottom:16px}
-.card h1{font-size:26px;line-height:1.1} .card h1 span{color:#ff5a2c}
-.paybox{background:#f7f5f2;border-radius:18px;padding:18px;margin:20px 0;text-align:left;border:1px dashed #ddd}
-.paybox b{font-size:13px;color:#888;display:block;margin-bottom:8px}
-.big{font-size:22px;font-weight:700}
-.method{display:flex;gap:10px;margin-top:14px}
-.method div{flex:1;background:#111;color:#fff;padding:10px;border-radius:12px;font-size:12px;text-align:center}
-input{width:100%;padding:14px;border-radius:14px;border:2px solid #eee;background:#fafafa;margin-top:14px;text-align:center;font-weight:700}
-button{width:100%;padding:14px;border-radius:14px;border:none;background:#111;color:#fff;font-weight:700;margin-top:12px;cursor:pointer}
-button.orange{background:#ff5a2c}
-small{color:#888;font-size:12px;display:block;margin-top:12px;line-height:1.5}
+.bar{width:200px;height:3px;background:#222;border-radius:10px;margin-top:20px;overflow:hidden}.prog{height:100%;width:0%;background:#ff5a2c;animation:ld 2s forwards}@keyframes ld{to{width:100%}}
+.wrap{max-width:420px;margin:0 auto;padding:20px 16px}
+.top{text-align:center;padding:20px 0 10px}.top h1{font-size:28px;font-weight:800;letter-spacing:-1px}
+.card{background:#fff;border-radius:22px;padding:20px;margin-top:16px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.label{font-size:11px;letter-spacing:1px;color:#999;font-weight:700;margin-bottom:10px}
+.num{font-size:28px;font-weight:800;letter-spacing:-1px}
+.paygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.paybtn{background:#111;color:#fff;padding:12px;border-radius:14px;text-align:center;font-size:13px;font-weight:600}
+.calc{background:#111;color:#fff;border-radius:20px;padding:18px;margin-top:16px}
+.calc h3{font-size:16px} .calc p{color:#888;font-size:13px;margin-top:4px}
+select,input{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#fff;margin-top:12px;font-size:14px}
+.result{background:#ff5a2c;border-radius:12px;padding:14px;margin-top:14px;text-align:center}
+.result b{font-size:20px}
+.btn{width:100%;padding:16px;border-radius:16px;border:none;font-weight:800;font-size:15px;margin-top:12px;cursor:pointer}
+.btn-orange{background:#ff5a2c;color:#fff}.btn-black{background:#111;color:#fff}.btn-white{background:#fff;border:2px solid #111;color:#111}
+.small{font-size:12px;color:#888;line-height:1.5;margin-top:10px}
+.target{background:#111;color:#fff;border-radius:14px;padding:14px;text-align:center;margin-top:16px}
 </style>
 </head>
 <body>
-
 <div id="loader">
-<div style="font-size:26px;font-weight:700">JOHN'S <span style="color:#ff5a2c">FAMILY</span></div>
-<div style="color:#666;margin-top:6px;font-size:11px;letter-spacing:2px">LOADING...</div>
+<div style="font-size:30px;font-weight:800;color:#fff">JOHN'S <span style="color:#ff5a2c">FAMILY</span></div>
+<div style="color:#555;margin-top:8px;font-size:11px;letter-spacing:3px">LOADING FAMILY LINK</div>
 <div class="bar"><div class="prog"></div></div>
 </div>
 
-<div id="lock">
-<div class="card">
-<div class="badge">🔒 LOCKED - CONTRIBUTION NEEDED</div>
-<h1>Contribution to <span>Unlock</span> The Family Link</h1>
-<p style="color:#666;font-size:14px;margin-top:10px;line-height:1.5">Our family website is ready, but we need to contribute 50,000 UGX to keep it online for everyone.</p>
-
-<div class="paybox">
-<b>CONTRIBUTE TO:</b>
-<div class="big">0742294974</div>
-<div style="margin-top:6px"><b style="color:#111;margin:0">Names:</b> Nanono Mariam</div>
-<div style="color:#666;font-size:13px;margin-top:6px">Network: MTN Mobile Money / Airtel Money</div>
-<div class="method">
-<div>📱 MTN<br><b>0742294974</b></div>
-<div>📱 Airtel<br><b>0742294974</b></div>
+<div class="wrap">
+<div class="top">
+<h1>The Family Link</h1>
+<p style="color:#666;margin-top:8px;font-size:14px;line-height:1.4">Our family website is ready, but we need to contribute <b>50,000 UGX</b> to keep it online for everyone.</p>
 </div>
-<b style="margin-top:14px">HOW TO PAY:</b>
-<small style="margin:0;text-align:left;color:#444">
+
+<div class="card">
+<div class="label">CONTRIBUTE TO:</div>
+<div class="num">0742294974</div>
+<div style="margin-top:6px"><b>Names:</b> Nanono Mariam</div>
+<div style="color:#666;font-size:13px;margin-top:4px">Network: MTN MoMo / Airtel Money</div>
+<div class="paygrid">
+<div class="paybtn">📱 MTN<br>0742294974</div>
+<div class="paybtn">📱 Airtel<br>0742294974</div>
+</div>
+<div class="small">
+<b>HOW TO PAY:</b><br>
 1. Go to MTN MoMo / Airtel Money<br>
 2. Send to <b>0742294974</b><br>
-3. Names will show: Nanono Mariam<br>
-4. Send any amount (1k, 2k, 5k...)<br>
-5. Screenshot & send to Shafic on WhatsApp
-</small>
+3. Names: Nanono Mariam<br>
+4. Send amount (see calculator below)<br>
+5. Screenshot & send to Shafic
+</div>
 </div>
 
-<div style="background:#111;color:#fff;padding:12px;border-radius:12px;font-size:13px">
-Target: 50,000 UGX<br><span style="color:#ff5a2c">We need your support ❤️</span>
+<div class="calc">
+<h3>💰 Contribution Calculator</h3>
+<p>Select your age - system will tell you how much to pay</p>
+
+<select id="age" onchange="calculate()">
+<option value="">Select your age group</option>
+<option value="young">Young (Below 25 years)</option>
+<option value="old">Old / Elder (25 years & above)</option>
+</select>
+
+<div id="res" style="display:none">
+<div class="result">
+<div style="font-size:12px;opacity:.8">YOU SHOULD PAY:</div>
+<b id="amount">0 UGX</b>
+<div id="range" style="font-size:12px;margin-top:4px;opacity:.9"></div>
 </div>
 
-<input id="code" placeholder="Enter Unlock Code from Shafic">
-<button class="orange" onclick="unlock()">UNLOCK NOW</button>
-<button onclick="alert('Pay to 0742294974 (Nanono Mariam) then WhatsApp proof to Shafic to get code')">I Have Paid</button>
-
-<small>After we reach 50,000, Shafic will share the unlock code to all family members. One code unlocks for everyone.</small>
+<div style="margin-top:14px;background:#1e1e1e;padding:12px;border-radius:12px">
+<b style="font-size:12px">Why different?</b><br>
+<span id="reason" style="font-size:12px;color:#aaa"></span>
 </div>
+
+<button class="btn btn-orange" onclick="payNow()">📲 I Have Paid - Send Proof to Shafic (0742294972)</button>
+</div>
+</div>
+
+<div class="card">
+<div class="label">ENTER UNLOCK CODE</div>
+<p style="font-size:13px;color:#666">After paying, Shafic will give you unlock code on WhatsApp</p>
+<input id="code" placeholder="Enter code from Shafic">
+<button class="btn btn-orange" onclick="unlock()">UNLOCK NOW</button>
+<button class="btn btn-black" onclick="payNow()">I Have Paid</button>
+
+<div class="target">
+Target: 50,000 UGX<br>
+<span style="color:#ff5a2c;font-size:13px">We need your support ❤️</span><br>
+<div style="height:6px;background:#222;border-radius:10px;margin-top:10px;overflow:hidden"><div style="width:35%;height:100%;background:#ff5a2c"></div></div>
+<small style="color:#666">Collected: Update manually</small>
+</div>
+</div>
+
+<div style="text-align:center;padding:20px;color:#aaa;font-size:12px">Made for John's Family • Kampala • Admin: Shafic 0742294972</div>
 </div>
 
 <script>
-const SECRET = "JOHNS50K"; // Your code - change if you want
-setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('lock').classList.add('show')},2300)
+setTimeout(()=>document.getElementById('loader').classList.add('hide'),2200)
+
+const codes = {
+  young: "YOUTH50", // Code for young people
+  old: "ELDER70",   // Code for old people
+  master: "JOHNS50K" // Master code unlocks all
+};
+
+function calculate(){
+ let age = document.getElementById('age').value;
+ let res = document.getElementById('res');
+ let amt = document.getElementById('amount');
+ let range = document.getElementById('range');
+ let reason = document.getElementById('reason');
+ if(!age) return;
+ res.style.display='block';
+ if(age==='young'){
+   amt.innerText = "3,000 - 6,000 UGX";
+   range.innerText = "Pay below 7,000 (Example: 5k)";
+   reason.innerText = "Young members pay below 7k. You can pay 3k, 4k, 5k or 6k. Every little helps!";
+ } else {
+   amt.innerText = "7,000 UGX & ABOVE";
+   range.innerText = "Pay 7k, 10k, 15k or more";
+   reason.innerText = "Elders pay 7k and above. Your support keeps the family link online for everyone.";
+ }
+}
+
+function payNow(){
+ let age = document.getElementById('age').value;
+ let msg = age==='young' ? "Hello Shafic, I am YOUNG, I have paid below 7k for Family Link. Here is proof." : "Hello Shafic, I am ELDER, I have paid 7k+ for Family Link. Here is proof.";
+ let url = `https://wa.me/256742294972?text=${encodeURIComponent(msg)}`;
+ window.open(url,'_blank');
+}
 
 function unlock(){
- let v = document.getElementById('code').value.trim().toUpperCase();
- if(v === SECRET){
+ let c = document.getElementById('code').value.trim().toUpperCase();
+ if(c===codes.young || c===codes.old || c===codes.master){
    localStorage.setItem('family_unlocked','yes');
-   document.body.innerHTML = `<div style='min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f7f5f2;color:#111;text-align:center;padding:20px'><div><h1 style='font-size:50px'>Welcome Home! ❤️</h1><p style='color:#666;margin-top:12px'>Family link unlocked. Redirecting...</p></div></div>`;
-   setTimeout(()=>{ window.location.href = "https://johnsfamily93-dotcom.github.io/John-s-Family-UNLOCKED/" },1500);
-   // For now it will just show unlocked - you will paste your REAL family code after you collect 50k
-   document.body.innerHTML = "<div style='padding:40px;text-align:center;background:#f7f5f2;min-height:100vh;color:#111'><h1>UNLOCKED! 🎉</h1><p>Now go back and paste your original family website code in index.html to show family.</p><p style='margin-top:20px;color:#888'>You reached 50k! Replace this file with your family site now.</p></div>";
- } else { alert("Wrong code! Contribute to 0742294974 - Nanono Mariam, then ask Shafic for code."); }
+   alert('✅ Correct! Welcome to John\'s Family!');
+   document.body.innerHTML = "<div style='min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f7f5f2;padding:20px;text-align:center'><div><h1 style='font-size:40px'>🎉 UNLOCKED!</h1><p style='margin-top:12px;color:#666'>You can now see family site. Shafic will restore full site after 50k is collected.</p><br><button onclick='localStorage.clear();location.reload()' style='padding:12px 20px;border-radius:12px;border:none;background:#111;color:#fff'>Lock Again (Test)</button></div></div>";
+ } else {
+   alert('❌ Wrong code! Pay to 0742294974 (Nanono Mariam) then WhatsApp 0742294972 for code.');
+ }
 }
-if(localStorage.getItem('family_unlocked')==='yes'){document.getElementById('loader').style.display='none';document.getElementById('lock').classList.add('show')}
 </script>
 </body>
-  </html>
+ </html>
