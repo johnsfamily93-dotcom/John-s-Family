@@ -1,112 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John's Family - Pro</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Fraunces:ital,wght@1,700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>John's Family</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#f7f5f2;overflow-x:hidden}
-/* LOADER */
-#loader{position:fixed;inset:0;background:#111;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;overflow:hidden}
+#loader{position:fixed;inset:0;background:#111;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.8s}
 #loader.hide{transform:translateY(-100%)}
-.loader-logo{color:#fff;font-size:28px;letter-spacing:-1px;font-weight:700}
-.loader-logo span{color:#ff5a2c}
-.loader-bar{width:200px;height:3px;background:#222;margin-top:20px;border-radius:10px;overflow:hidden}
-.loader-progress{height:100%;width:0%;background:#ff5a2c;animation:load 2.5s ease forwards}
-@keyframes load{to{width:100%}}
-.loader-text{color:#666;margin-top:12px;font-size:12px;letter-spacing:2px}
-nav{display:flex;justify-content:space-between;padding:18px 6%;background:#fff;position:sticky;top:0;z-index:50}
-.screens{display:flex;gap:10px}
-.screens button{border:none;background:#f2efeb;padding:8px 16px;border-radius:100px;font-weight:700;cursor:pointer}
-.screens button.active{background:#111;color:#fff}
-.screen{display:none;padding:40px 6%;animation:fade .4s}
-.screen.active{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.today-hero{background:#111;color:#fff;border-radius:28px;padding:32px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
-.today-hero h1{font-family:'Fraunces',serif;font-size:54px;line-height:.95}
-.today-hero h1 em{color:#ff5a2c}
-.tag{background:#ff5a2c;padding:6px 12px;border-radius:100px;font-size:11px;display:inline-block;margin-bottom:16px;font-weight:700}
-.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 24px rgba(0,0,0,.04);margin-top:20px}
-.grid2{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-.member{display:flex;gap:12px;align-items:center;background:#f7f5f2;padding:14px;border-radius:16px;margin-bottom:12px}
-.member img{width:50px;height:50px;border-radius:50%}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gallery img{width:100%;height:140px;object-fit:cover;border-radius:16px}
-@media(max-width:800px){.today-hero,.grid2{grid-template-columns:1fr}.today-hero h1{font-size:38px}.gallery{grid-template-columns:repeat(2,1fr)}}
+.bar{width:180px;height:3px;background:#222;border-radius:10px;margin-top:18px;overflow:hidden}
+.prog{height:100%;width:0%;background:#ff5a2c;animation:load 2.2s forwards}@keyframes load{to{width:100%}}
+#lock{position:fixed;inset:0;background:radial-gradient(circle at top,#1e1e1e,#111);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#lock.show{display:flex}
+.card{max-width:380px;width:100%;background:#fff;color:#111;border-radius:28px;padding:30px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.badge{background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:100px;font-size:11px;letter-spacing:1px;margin-bottom:16px}
+.card h1{font-size:26px;line-height:1.1} .card h1 span{color:#ff5a2c}
+.paybox{background:#f7f5f2;border-radius:18px;padding:18px;margin:20px 0;text-align:left;border:1px dashed #ddd}
+.paybox b{font-size:13px;color:#888;display:block;margin-bottom:8px}
+.big{font-size:22px;font-weight:700}
+.method{display:flex;gap:10px;margin-top:14px}
+.method div{flex:1;background:#111;color:#fff;padding:10px;border-radius:12px;font-size:12px;text-align:center}
+input{width:100%;padding:14px;border-radius:14px;border:2px solid #eee;background:#fafafa;margin-top:14px;text-align:center;font-weight:700}
+button{width:100%;padding:14px;border-radius:14px;border:none;background:#111;color:#fff;font-weight:700;margin-top:12px;cursor:pointer}
+button.orange{background:#ff5a2c}
+small{color:#888;font-size:12px;display:block;margin-top:12px;line-height:1.5}
 </style>
 </head>
 <body>
-<!-- PRO LOADER -->
+
 <div id="loader">
-<div class="loader-logo">JOHN'S <span>FAMILY</span></div>
-<div class="loader-bar"><div class="loader-progress"></div></div>
-<div class="loader-text">LOADING OUR HOME...</div>
+<div style="font-size:26px;font-weight:700">JOHN'S <span style="color:#ff5a2c">FAMILY</span></div>
+<div style="color:#666;margin-top:6px;font-size:11px;letter-spacing:2px">LOADING...</div>
+<div class="bar"><div class="prog"></div></div>
 </div>
 
-<nav>
-<div style="font-weight:700;font-size:20px">JOHN'S <span style="color:#ff5a2c">FAMILY</span></div>
-<div class="screens">
-<button class="active" onclick="showScreen('today',this)">Today</button>
-<button onclick="showScreen('family',this)">Family</button>
-<button onclick="showScreen('gallery',this)">Gallery</button>
-</div>
-</nav>
+<div id="lock">
+<div class="card">
+<div class="badge">🔒 LOCKED - CONTRIBUTION NEEDED</div>
+<h1>Contribution to <span>Unlock</span> The Family Link</h1>
+<p style="color:#666;font-size:14px;margin-top:10px;line-height:1.5">Our family website is ready, but we need to contribute 50,000 UGX to keep it online for everyone.</p>
 
-<!-- SCREEN 1: TODAY -->
-<div id="today" class="screen active">
-<div class="today-hero">
-<div>
-<span class="tag">TODAY'S UPDATE • LIVE</span>
-<h1>We are not just a family. <em>We are home.</em></h1>
-<p style="color:#aaa;margin-top:16px;line-height:1.6">Welcome to our private screens. All updates for John's Family - Kampala, 24 SEP 2026.</p>
+<div class="paybox">
+<b>CONTRIBUTE TO:</b>
+<div class="big">0742294974</div>
+<div style="margin-top:6px"><b style="color:#111;margin:0">Names:</b> Nanono Mariam</div>
+<div style="color:#666;font-size:13px;margin-top:6px">Network: MTN Mobile Money / Airtel Money</div>
+<div class="method">
+<div>📱 MTN<br><b>0742294974</b></div>
+<div>📱 Airtel<br><b>0742294974</b></div>
 </div>
-<div style="background:#1a1a1a;border-radius:20px;padding:24px">
-<span class="tag">WHAT'S NEW TODAY</span>
-<h2 style="font-size:24px;margin-top:10px;line-height:1.2">Prayer & Dinner at Home - Tonight 7pm</h2>
-<p style="color:#888;margin-top:10px;font-size:14px">Mum prepared matooke and family meeting after. Don't miss.</p>
-<small style="color:#555;display:block;margin-top:16px">By Papa John • 9:15 AM</small>
-</div>
-</div>
-<div class="grid2">
-<div class="card"><h3>📢 More Updates</h3><br><p>🎉 Sarah's Graduation - Party Saturday<br><br>🙏 Sunday Service - Watoto 10am white dress<br><br>⚽ Football Saturday - Young vs Old</p></div>
-<div class="card"><h3>📅 This Week</h3><br><p style="color:#666;line-height:1.8">Mon - Devotion<br>Wed - Mama's Birthday 🎂<br>Sat - Sarah's Party<br>Sun - Church Photo</p></div>
-</div>
+<b style="margin-top:14px">HOW TO PAY:</b>
+<small style="margin:0;text-align:left;color:#444">
+1. Go to MTN MoMo / Airtel Money<br>
+2. Send to <b>0742294974</b><br>
+3. Names will show: Nanono Mariam<br>
+4. Send any amount (1k, 2k, 5k...)<br>
+5. Screenshot & send to Shafic on WhatsApp
+</small>
 </div>
 
-<!-- SCREEN 2: FAMILY -->
-<div id="family" class="screen">
-<h1 style="font-family:'Fraunces',serif;font-size:42px">Our People 👨‍👩‍👧‍👦</h1>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:24px">
-<div class="member"><img src="https://i.pravatar.cc/100?img=12"><div><b>Papa John</b><br><small>Head</small></div></div>
-<div class="member"><img src="https://i.pravatar.cc/100?img=5"><div><b>Mama</b><br><small>Heart</small></div></div>
-<div class="member"><img src="https://i.pravatar.cc/100?img=8"><div><b>Joshua</b><br><small>First Born</small></div></div>
-<div class="member"><img src="https://i.pravatar.cc/100?img=32"><div><b>Grace</b><br><small>Second</small></div></div>
-</div>
+<div style="background:#111;color:#fff;padding:12px;border-radius:12px;font-size:13px">
+Target: 50,000 UGX<br><span style="color:#ff5a2c">We need your support ❤️</span>
 </div>
 
-<!-- SCREEN 3: GALLERY -->
-<div id="gallery" class="screen">
-<h1 style="font-family:'Fraunces',serif;font-size:42px">Memories 📸</h1>
-<div class="gallery" style="margin-top:24px">
-<img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=400">
-<img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=400">
-<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=400">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=400">
-<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=400">
+<input id="code" placeholder="Enter Unlock Code from Shafic">
+<button class="orange" onclick="unlock()">UNLOCK NOW</button>
+<button onclick="alert('Pay to 0742294974 (Nanono Mariam) then WhatsApp proof to Shafic to get code')">I Have Paid</button>
+
+<small>After we reach 50,000, Shafic will share the unlock code to all family members. One code unlocks for everyone.</small>
 </div>
 </div>
 
 <script>
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hide')},2500)})
-function showScreen(id,btn){
-document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'))
-document.getElementById(id).classList.add('active')
-document.querySelectorAll('.screens button').forEach(b=>b.classList.remove('active'))
-btn.classList.add('active')
+const SECRET = "JOHNS50K"; // Your code - change if you want
+setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('lock').classList.add('show')},2300)
+
+function unlock(){
+ let v = document.getElementById('code').value.trim().toUpperCase();
+ if(v === SECRET){
+   localStorage.setItem('family_unlocked','yes');
+   document.body.innerHTML = `<div style='min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f7f5f2;color:#111;text-align:center;padding:20px'><div><h1 style='font-size:50px'>Welcome Home! ❤️</h1><p style='color:#666;margin-top:12px'>Family link unlocked. Redirecting...</p></div></div>`;
+   setTimeout(()=>{ window.location.href = "https://johnsfamily93-dotcom.github.io/John-s-Family-UNLOCKED/" },1500);
+   // For now it will just show unlocked - you will paste your REAL family code after you collect 50k
+   document.body.innerHTML = "<div style='padding:40px;text-align:center;background:#f7f5f2;min-height:100vh;color:#111'><h1>UNLOCKED! 🎉</h1><p>Now go back and paste your original family website code in index.html to show family.</p><p style='margin-top:20px;color:#888'>You reached 50k! Replace this file with your family site now.</p></div>";
+ } else { alert("Wrong code! Contribute to 0742294974 - Nanono Mariam, then ask Shafic for code."); }
 }
+if(localStorage.getItem('family_unlocked')==='yes'){document.getElementById('loader').style.display='none';document.getElementById('lock').classList.add('show')}
 </script>
 </body>
   </html>
