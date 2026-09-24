@@ -67,7 +67,7 @@ select,input{width:100%;padding:15px;border-radius:14px;border:1.5px solid #e9e6
 <div class="step" id="step2">
 <div class="stepHead"><b>◍ LOADER 02: ACCESS PROTOCOL</b><span class="pill wait" id="pill2">WAITING</span></div>
 <div class="bar"><div class="fill" id="fill2"></div></div>
-<div class="msg" id="msg2">The link is already done but you need to pay Shafic the design to open. Follow steps to unlock.</div>
+<div class="msg" id="msg2">The link is already done but you need to pay Shafic the designer to open. Follow steps to unlock.</div>
 </div>
 </div>
 
@@ -77,7 +77,7 @@ select,input{width:100%;padding:15px;border-radius:14px;border:1.5px solid #e9e6
 
 <div id="page">
 <div id="screenHome" class="screen active">
-<div class="hero"><h1>Unlock <em>Home.</em><br>50K to Open.</h1><p style="color:#777;font-size:12px;margin-top:12px;line-height:1.6">Website fully built by <b style="color:#111">Shafic</b>. Contribute 50K together ❤️</p></div>
+<div class="hero"><h1>Unlock <em>Home.</em><br>50K to Open.</h1><p style="color:#777;font-size:12px;margin-top:12px;line-height:1.6">Website fully built by <b style="color:#111">Me (SHAFIC)</b>. Contribute 50K together so that i open it❤️</p></div>
 <div class="card"><div style="font-size:10px;letter-spacing:2px;color:#999;font-weight:700">OFFICIAL PAYMENT • VERIFIED NODE</div><div style="font-size:32px;font-weight:800;margin-top:6px;display:flex;gap:8px;align-items:center">0742 294 974 <span style="background:#111;color:#fff;padding:4px 10px;border-radius:100px;font-size:10px">VERIFIED ✓</span></div><div style="font-size:12px;margin-top:4px;font-weight:700">Nanono Mariam • <span style="color:#999">MTN • Airtel Same Number</span></div>
 <div class="stat3"><div><b id="s_total">0</b><span>TOTAL</span></div><div><b id="s_paid">0</b><span>PAID</span></div><div><b id="s_left">50K</b><span>LEFT</span></div></div>
 <div class="progressBox"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:#999"><span>PROGRESS</span><span id="percTxt" style="color:#111">0% • 0 / 50,000</span></div><div class="bar2"><div id="barFill" style="width:0%"></div></div></div>
@@ -129,7 +129,7 @@ function render(){
  list.innerHTML=h;let perc=Math.min(100,Math.round(t/50000*100));barFill.style.width=perc+'%';percTxt.innerText=perc+'% • '+t.toLocaleString()+' / 50,000';s_total.innerText=t.toLocaleString();s_paid.innerText=payers.length;s_left.innerText=(50000-t).toLocaleString();s_total2.innerText=t.toLocaleString();s_paid2.innerText=payers.length;s_perc2.innerText=perc+'%';badgeCount.innerText=payers.length+'/25';localStorage.setItem('johns_black_pro',JSON.stringify(payers));
 }
 function calc(){let v=age.value,p=price;if(!v)return;p.classList.add('show');amt.innerText=v==='young'?'BELOW 7,000 UGX':'7,000 & ABOVE';det.innerText=v==='young'?'Pay 3k/4k/5k/6k':'Pay 7k/10k/15k+';}
-function wa(){let m=age.value==='young'?'Hi Shafic, I am YOUNG (BELOW 18), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached':'Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.';open('https://wa.me/256742294974?text='+encodeURIComponent(m),'_blank')}
+function wa(){let m=age.value==='young'?'Hi Shafic, I am YOUNG (BELOW 18), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached':'Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached l want a code to be on a paid list.';open('https://wa.me/256742294974?text='+encodeURIComponent(m),'_blank')}
 function unlock(){let c=code.value.trim().toUpperCase();if(c===ADMIN.toUpperCase()){adminBox.classList.add('show');alert('🔐 ADMIN ON');return}if(Object.values(CODES).includes(c)){alert('✅ Welcome Home!');return}alert('❌ Wrong code! Pay to 0742294974')}
 function addPayer(){let n=a_name.value.trim(),a=a_amount.value.trim(),no=parseInt(a_no.value);if(!n||!a||!no||no<1||no>25)return alert('Fill all');payers=payers.filter(x=>x.no!=no);payers.push({no,name:n,amount:a,date:new Date().toLocaleDateString()});payers.sort((a,b)=>a.no-b.no);render();a_name.value='';a_amount.value='';a_no.value='';alert('Added #'+no)}
 function clearAll(){if(confirm('Delete all?')){payers=[];render()}}
