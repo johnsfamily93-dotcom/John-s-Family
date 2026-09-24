@@ -2,150 +2,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Family Link - Contribution</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<title>John's Family - Contribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8f6f3;color:#111}
-#loader{position:fixed;inset:0;background:#111;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.7s}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#0f0f0f;color:#fff}
+#loader{position:fixed;inset:0;background:#0f0f0f;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.8s cubic-bezier(.7,0,.3,1)}
 #loader.hide{transform:translateY(-100%)}
-.bar{width:200px;height:3px;background:#222;border-radius:10px;margin-top:20px;overflow:hidden}.prog{height:100%;width:0%;background:#ff5a2c;animation:ld 2s forwards}@keyframes ld{to{width:100%}}
-.wrap{max-width:420px;margin:0 auto;padding:20px 16px}
-.top{text-align:center;padding:20px 0 10px}.top h1{font-size:28px;font-weight:800;letter-spacing:-1px}
-.card{background:#fff;border-radius:22px;padding:20px;margin-top:16px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-.label{font-size:11px;letter-spacing:1px;color:#999;font-weight:700;margin-bottom:10px}
-.num{font-size:28px;font-weight:800;letter-spacing:-1px}
-.paygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.paybtn{background:#111;color:#fff;padding:12px;border-radius:14px;text-align:center;font-size:13px;font-weight:600}
-.calc{background:#111;color:#fff;border-radius:20px;padding:18px;margin-top:16px}
-.calc h3{font-size:16px} .calc p{color:#888;font-size:13px;margin-top:4px}
-select,input{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#fff;margin-top:12px;font-size:14px}
-.result{background:#ff5a2c;border-radius:12px;padding:14px;margin-top:14px;text-align:center}
-.result b{font-size:20px}
+.logo{font-size:36px;font-weight:800;letter-spacing:-1px}.logo span{color:#ff5a2c}
+.bar{width:240px;height:4px;background:#1f1f1f;border-radius:10px;margin-top:26px;overflow:hidden}
+.fill{height:100%;width:0%;background:linear-gradient(90deg,#ff5a2c,#ff8c42);animation:ld 2.5s ease forwards}@keyframes ld{0%{width:0%}80%{width:90%}100%{width:100%}}
+.sub{color:#555;font-size:10px;letter-spacing:3px;margin-top:14px;font-weight:700}
+#page{max-width:400px;margin:0 auto;padding:18px;display:none;min-height:100vh}#page.show{display:block;animation:fade .5s}@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.head{text-align:center;padding:20px 0 10px}
+.head h1{font-size:28px;line-height:1.05;letter-spacing:-0.5px}.head h1 span{color:#ff5a2c}
+.card{background:#fff;color:#111;border-radius:24px;padding:22px;margin-top:18px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.badge{background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:100px;font-size:10px;letter-spacing:1px;font-weight:700}
+.bigNum{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:8px}
+.payRow{display:flex;gap:10px;margin-top:14px}.payRow div{flex:1;background:#111;color:#fff;padding:12px;border-radius:14px;text-align:center;font-weight:700;font-size:13px}
+.how{background:#f7f5f2;border-radius:16px;padding:14px;margin-top:14px}
+.how b{font-size:12px;color:#999;letter-spacing:1px}.how p{font-size:13px;line-height:1.6;margin-top:6px;color:#444}
+.ageBox{background:#161616;border:1px solid #222;border-radius:20px;padding:18px;margin-top:18px}
+select{width:100%;padding:15px;border-radius:14px;border:1px solid #2a2a2a;background:#0f0f0f;color:#fff;font-weight:700;margin-top:12px;font-size:14px}
+.amountBox{background:#ff5a2c;border-radius:16px;padding:16px;text-align:center;margin-top:14px;display:none}
+.amountBox.show{display:block}
+.amountBox b{font-size:24px}
 .btn{width:100%;padding:16px;border-radius:16px;border:none;font-weight:800;font-size:15px;margin-top:12px;cursor:pointer}
-.btn-orange{background:#ff5a2c;color:#fff}.btn-black{background:#111;color:#fff}.btn-white{background:#fff;border:2px solid #111;color:#111}
-.small{font-size:12px;color:#888;line-height:1.5;margin-top:10px}
-.target{background:#111;color:#fff;border-radius:14px;padding:14px;text-align:center;margin-top:16px}
+.btnO{background:#ff5a2c;color:#fff}.btnB{background:#fff;color:#111;border:2px solid #111}.btnW{background:#25D366;color:#fff}
+.target{background:#fff;color:#111;border-radius:16px;padding:14px;text-align:center;margin-top:18px;font-weight:700}
+.progress{height:8px;background:#eee;border-radius:10px;margin-top:10px;overflow:hidden}.progress div{height:100%;width:15%;background:#ff5a2c}
+input{width:100%;padding:15px;border-radius:14px;border:2px solid #eee;background:#fafafa;text-align:center;font-weight:800;letter-spacing:1px;margin-top:12px}
 </style>
 </head>
 <body>
+
 <div id="loader">
-<div style="font-size:30px;font-weight:800;color:#fff">JOHN'S <span style="color:#ff5a2c">FAMILY</span></div>
-<div style="color:#555;margin-top:8px;font-size:11px;letter-spacing:3px">LOADING FAMILY LINK</div>
-<div class="bar"><div class="prog"></div></div>
+<div class="logo">JOHN'S <span>FAMILY</span></div>
+<div class="sub">FAMILY LINK • KAMPALA</div>
+<div class="bar"><div class="fill"></div></div>
 </div>
 
-<div class="wrap">
-<div class="top">
-<h1>The Family Link</h1>
-<p style="color:#666;margin-top:8px;font-size:14px;line-height:1.4">Our family website is ready, but we need to contribute <b>50,000 UGX</b> to keep it online for everyone.</p>
+<div id="page">
+<div class="head">
+<div class="badge">🔒 LINK LOCKED</div>
+<h1>Pay <span>50,000</span> to Open<br>Family Link</h1>
+<p style="color:#888;font-size:13px;margin-top:8px;line-height:1.5">We need to contribute 50k together to unlock our family website for everyone.</p>
 </div>
 
 <div class="card">
-<div class="label">CONTRIBUTE TO:</div>
-<div class="num">0742294974</div>
-<div style="margin-top:6px"><b>Names:</b> Nanono Mariam</div>
-<div style="color:#666;font-size:13px;margin-top:4px">Network: MTN MoMo / Airtel Money</div>
-<div class="paygrid">
-<div class="paybtn">📱 MTN<br>0742294974</div>
-<div class="paybtn">📱 Airtel<br>0742294974</div>
+<div style="font-size:11px;color:#999;font-weight:700;letter-spacing:1px">SEND MONEY TO:</div>
+<div class="bigNum">0742294974</div>
+<div style="margin-top:4px"><b style="font-size:15px">Names: Nanono Mariam</b></div>
+<div style="color:#666;font-size:13px;margin-top:2px">MTN Mobile Money & Airtel Money</div>
+
+<div class="payRow">
+<div>📱 MTN<br>0742294974</div>
+<div>📱 Airtel<br>0742294974</div>
 </div>
-<div class="small">
-<b>HOW TO PAY:</b><br>
-1. Go to MTN MoMo / Airtel Money<br>
-2. Send to <b>0742294974</b><br>
-3. Names: Nanono Mariam<br>
-4. Send amount (see calculator below)<br>
-5. Screenshot & send to Shafic
+
+<div class="how">
+<b>HOW TO PAY:</b>
+<p>
+1️⃣ Open MTN MoMo / Airtel Money<br>
+2️⃣ Choose Send Money<br>
+3️⃣ Enter number: <b>0742294974</b><br>
+4️⃣ Names will show: <b>Nanono Mariam</b><br>
+5️⃣ Enter amount (check below)<br>
+6️⃣ Confirm & send<br>
+7️⃣ Screenshot and send to Shafic
+</p>
 </div>
 </div>
 
-<div class="calc">
-<h3>💰 Contribution Calculator</h3>
-<p>Select your age - system will tell you how much to pay</p>
+<div class="ageBox">
+<h3 style="font-size:16px">👇 How much should you pay?</h3>
+<p style="color:#777;font-size:13px;margin-top:4px">Select your age - system will tell you</p>
 
-<select id="age" onchange="calculate()">
-<option value="">Select your age group</option>
-<option value="young">Young (Below 25 years)</option>
-<option value="old">Old / Elder (25 years & above)</option>
+<select id="age" onchange="showAmount()">
+<option value="">-- Select Your Age --</option>
+<option value="young">👶 Young - 18 Years BELOW (Below 18)</option>
+<option value="old">👨‍👩‍👧 Old - 18 Years ABOVE (18 and above)</option>
 </select>
 
-<div id="res" style="display:none">
-<div class="result">
-<div style="font-size:12px;opacity:.8">YOU SHOULD PAY:</div>
-<b id="amount">0 UGX</b>
-<div id="range" style="font-size:12px;margin-top:4px;opacity:.9"></div>
-</div>
-
-<div style="margin-top:14px;background:#1e1e1e;padding:12px;border-radius:12px">
-<b style="font-size:12px">Why different?</b><br>
-<span id="reason" style="font-size:12px;color:#aaa"></span>
-</div>
-
-<button class="btn btn-orange" onclick="payNow()">📲 I Have Paid - Send Proof to Shafic (0742294974)</button>
+<div id="amountBox" class="amountBox">
+<div style="font-size:11px;letter-spacing:1px;opacity:.8">YOU SHOULD PAY:</div>
+<b id="amtText">0 UGX</b>
+<div id="amtDet" style="font-size:12px;margin-top:4px;opacity:.9"></div>
+<button class="btn btnW" onclick="sendWA()">📲 Send Payment Proof to Shafic</button>
 </div>
 </div>
 
 <div class="card">
-<div class="label">ENTER UNLOCK CODE</div>
-<p style="font-size:13px;color:#666">After paying, Shafic will give you unlock code on WhatsApp</p>
-<input id="code" placeholder="Enter code from Shafic">
-<button class="btn btn-orange" onclick="unlock()">UNLOCK NOW</button>
-<button class="btn btn-black" onclick="payNow()">I Have Paid</button>
+<div style="font-size:11px;color:#999;font-weight:700;letter-spacing:1px">UNLOCK CODE</div>
+<p style="font-size:13px;color:#666;margin-top:4px">After payment, Shafic sends you code</p>
+<input id="codeInput" placeholder="ENTER CODE HERE">
+<button class="btn btnO" onclick="unlockSite()">UNLOCK FAMILY LINK 🔓</button>
+<button class="btn btnB" onclick="sendWA()">I HAVE PAID</button>
 
 <div class="target">
-Target: 50,000 UGX<br>
-<span style="color:#ff5a2c;font-size:13px">We need your support ❤️</span><br>
-<div style="height:6px;background:#222;border-radius:10px;margin-top:10px;overflow:hidden"><div style="width:35%;height:100%;background:#ff5a2c"></div></div>
-<small style="color:#666">Collected: Update manually</small>
+🎯 Target: 50,000 UGX<br>
+<span style="font-size:13px;color:#666">For John's Family Website</span>
+<div class="progress"><div></div></div>
 </div>
 </div>
 
-<div style="text-align:center;padding:20px;color:#aaa;font-size:12px">Made for John's Family • Kampala • Admin: Shafic 0742294972</div>
+<div style="text-align:center;color:#555;font-size:11px;padding:24px;line-height:1.5">Admin: Shafic<br>WhatsApp: 0742294972<br>MoMo: 0742294974 - Nanono Mariam<br><br>Made for John's Family ❤️ Kampala 2026</div>
 </div>
 
 <script>
-setTimeout(()=>document.getElementById('loader').classList.add('hide'),2200)
+// LOADER
+setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('page').classList.add('show')},2600)
 
-const codes = {
-  young: "YOUTH50", // Code for young people
-  old: "ELDER70",   // Code for old people
-  master: "JOHNS50K" // Master code unlocks all
+// CODES YOU WILL GIVE THEM
+const CODES = {
+  young: "YOUNG50",   // for 18 below
+  old: "OLD70",       // for 18 above
+  master: "JOHNS50K"  // master after 50k
 };
 
-function calculate(){
- let age = document.getElementById('age').value;
- let res = document.getElementById('res');
- let amt = document.getElementById('amount');
- let range = document.getElementById('range');
- let reason = document.getElementById('reason');
- if(!age) return;
- res.style.display='block';
- if(age==='young'){
-   amt.innerText = "3,000 - 6,000 UGX";
-   range.innerText = "Pay below 7,000 (Example: 5k)";
-   reason.innerText = "Young members pay below 7k. You can pay 3k, 4k, 5k or 6k. Every little helps!";
+function showAmount(){
+ let v=document.getElementById('age').value, box=document.getElementById('amountBox'), txt=document.getElementById('amtText'), det=document.getElementById('amtDet');
+ if(!v) return; box.classList.add('show');
+ if(v==='young'){
+   txt.innerText="BELOW 7,000 UGX";
+   det.innerText="Young (18 BELOW) - Pay 3k, 4k, 5k or 6k - Below 7000";
  } else {
-   amt.innerText = "7,000 UGX & ABOVE";
-   range.innerText = "Pay 7k, 10k, 15k or more";
-   reason.innerText = "Elders pay 7k and above. Your support keeps the family link online for everyone.";
+   txt.innerText="7,000 UGX & ABOVE";
+   det.innerText="Old (18 ABOVE) - Pay 7k, 10k, 15k, 20k... 7000 and above";
  }
 }
-
-function payNow(){
- let age = document.getElementById('age').value;
- let msg = age==='young' ? "Hello Shafic, I am YOUNG, I have paid below 7k for Family Link. Here is proof." : "Hello Shafic, I am ELDER, I have paid 7k+ for Family Link. Here is proof.";
- let url = `https://wa.me/256742294972?text=${encodeURIComponent(msg)}`;
- window.open(url,'_blank');
+function sendWA(){
+ let age=document.getElementById('age').value;
+ let msg = age==='young' ? "Hello Shafic, I am YOUNG (18 BELOW), I have paid BELOW 7000 to 0742294974 Nanono Mariam for family link. Here is screenshot proof." : "Hello Shafic, I am OLD (18 ABOVE), I have paid 7000 and ABOVE to 0742294974 Nanono Mariam for family link. Here is screenshot proof.";
+ window.open("https://wa.me/256742294972?text="+encodeURIComponent(msg),"_blank");
 }
-
-function unlock(){
- let c = document.getElementById('code').value.trim().toUpperCase();
- if(c===codes.young || c===codes.old || c===codes.master){
-   localStorage.setItem('family_unlocked','yes');
-   alert('✅ Correct! Welcome to John\'s Family!');
-   document.body.innerHTML = "<div style='min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f7f5f2;padding:20px;text-align:center'><div><h1 style='font-size:40px'>🎉 UNLOCKED!</h1><p style='margin-top:12px;color:#666'>You can now see family site. Shafic will restore full site after 50k is collected.</p><br><button onclick='localStorage.clear();location.reload()' style='padding:12px 20px;border-radius:12px;border:none;background:#111;color:#fff'>Lock Again (Test)</button></div></div>";
+function unlockSite(){
+ let c=document.getElementById('codeInput').value.trim().toUpperCase();
+ if(c===CODES.young || c===CODES.old || c===CODES.master){
+   localStorage.setItem('family_ok','yes');
+   alert("✅ Code correct! Welcome to John's Family!");
+   document.body.innerHTML="<div style='min-height:100vh;background:#f7f5f2;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px'><div><h1 style='font-size:42px;color:#111'>🎉 UNLOCKED!</h1><p style='color:#666;margin-top:10px'>Family link is now open for you!</p></div></div>";
  } else {
-   alert('❌ Wrong code! Pay to 0742294974 (Nanono Mariam) then WhatsApp 0742294972 for code.');
+   alert("❌ Wrong code! First pay to 0742294974 (Nanono Mariam), then send proof to Shafic 0742294972 on WhatsApp to get code.");
  }
 }
 </script>
