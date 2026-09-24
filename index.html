@@ -1,136 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Family • Private Access</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>JOHN'S FAMILY • ENCRYPTED VAULT</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@600;800&family=Fraunces:opsz,wght@9..144,900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
-h1,h2{font-family:'Fraunces',serif}
-#loader{position:fixed;inset:0;background:#0a0a0a;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s cubic-bezier(.8,0,.2,1)}
-#loader.hide{transform:translateY(-100%);opacity:0}
-.logo{font-size:42px;font-weight:800;letter-spacing:-1.5px;display:flex;align-items:center;gap:10px}
-.logo b{color:#ff4d1c}.ring{width:52px;height:52px;border:3px solid #222;border-top-color:#ff4d1c;border-radius:50%;animation:spin 1s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
-.bar{width:280px;height:4px;background:#1a1a1a;border-radius:100px;margin-top:32px;overflow:hidden;position:relative}
-.fill{position:absolute;inset:0;background:linear-gradient(90deg,#ff4d1c,#ff8a4c,#ff4d1c);background-size:200% 100%;width:0%;animation:ld 2.8s ease forwards, shine 1s linear infinite}@keyframes ld{to{width:100%}}@keyframes shine{to{background-position:200% 0}}
-.sub{color:#555;font-size:10px;letter-spacing:4px;margin-top:18px;font-weight:700}
-.wow{margin-top:24px;background:#111;border:1px solid #222;padding:10px 18px;border-radius:100px;font-size:11px;color:#888;display:flex;gap:8px;align-items:center}
-.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 10px #22c55e;animation:pulse 1.2s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
-#page{max-width:440px;margin:0 auto;padding:20px;display:none}#page.show{display:block;animation:up .6s ease}@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero{text-align:center;padding:30px 10px}.hero h1{font-size:38px;line-height:.95;letter-spacing:-1px}.hero h1 i{font-style:italic;color:#ff4d1c;font-weight:700}
-.hero p{color:#777;font-size:14px;margin-top:14px;line-height:1.6}
-.glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:22px;margin-top:22px;position:relative;overflow:hidden}
-.glass::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 20%,rgba(255,77,28,.15),transparent 40%);pointer-events:none}
-.num{font-size:36px;font-weight:800;letter-spacing:-1px;margin-top:8px;position:relative}
-.pay2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;position:relative}
-.pay2 div{background:#fff;color:#111;padding:14px;border-radius:18px;text-align:center;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:.2s}
-.pay2 div:active{transform:scale(.97)}
-.steps{background:#0f0f0f;border:1px dashed #222;border-radius:18px;padding:16px;margin-top:16px;position:relative}
-.steps b{font-size:10px;letter-spacing:1.5px;color:#555}.steps p{font-size:13px;color:#aaa;line-height:1.8;margin-top:8px}
-.steps p strong{color:#fff}
-.calcCard{background:#fff;color:#111;border-radius:28px;padding:24px;margin-top:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-select{width:100%;padding:16px;border-radius:16px;border:2px solid #f0f0f0;background:#fafafa;font-weight:700;font-size:14px;margin-top:14px;outline:none}
-.price{margin-top:16px;background:#111;color:#fff;border-radius:20px;padding:18px;text-align:center;position:relative;overflow:hidden;display:none}
-.price.show{display:block;animation:up .4s}.price::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent,rgba(255,77,28,.3),transparent);animation:shineCard 2s infinite}@keyframes shineCard{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-.btn{width:100%;padding:18px;border-radius:18px;border:none;font-weight:800;font-size:15px;margin-top:14px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
-.btn:active{transform:scale(.98)}.btnO{background:#ff4d1c;color:#fff;box-shadow:0 10px 30px rgba(255,77,28,.4)}.btnW{background:#25D366;color:#fff;box-shadow:0 10px 30px rgba(37,211,102,.3)}
-input{width:100%;padding:18px;border-radius:18px;border:2px solid #eee;background:#fafafa;text-align:center;font-weight:800;letter-spacing:2px;margin-top:14px;font-size:16px;outline:none}
-.target{margin-top:22px;background:linear-gradient(180deg,#1a1a1a,#111);border:1px solid #222;border-radius:20px;padding:16px;text-align:center}
-.bar2{height:10px;background:#222;border-radius:100px;margin-top:12px;overflow:hidden}.bar2 div{height:100%;width:32%;background:linear-gradient(90deg,#ff4d1c,#ff8a4c);border-radius:100px;box-shadow:0 0 20px rgba(255,77,28,.6)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050507;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono',monospace}
+#canvas{position:fixed;inset:0;z-index:0;opacity:.18}
+#loader{position:fixed;inset:0;z-index:99999;background:#050507;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.9s cubic-bezier(.8,0,.2,1)}
+#loader.hide{transform:translateY(-100%)}
+.vault{width:120px;height:120px;border:1px solid #1a1a1a;border-radius:32px;background:radial-gradient(circle at 50% 0%,#1a1a1a,#050507);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 80px rgba(255,77,28,.15), inset 0 1px 1px rgba(255,255,255,.1)}
+.vault::after{content:'';position:absolute;inset:-1px;border-radius:32px;background:conic-gradient(from 0deg,#ff4d1c,transparent,transparent,#ff4d1c);mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;padding:1px;animation:rot 2s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}.ring{width:54px;height:54px;border:2px solid #222;border-top-color:#ff4d1c;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.type{margin-top:24px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:3px;color:#666;display:flex;gap:10px;align-items:center}
+.dots span{width:4px;height:4px;background:#ff4d1c;border-radius:50%;display:inline-block;animation:b 1s infinite alternate}@keyframes b{to{opacity:.2}}
+.bar{width:300px;height:2px;background:#151515;margin-top:28px;overflow:hidden;position:relative;border-radius:100px}
+.fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:linear-gradient(90deg,#ff4d1c,#ffae8a);box-shadow:0 0 20px #ff4d1c;animation:load 2.6s cubic-bezier(.8,0,.2,1) forwards}@keyframes load{to{width:100%}}
+#page{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:18px;display:none}#page.show{display:block;animation:up.7s ease}@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.top{border:1px solid #1c1c1c;background:linear-gradient(180deg,#111,#0a0a0a);border-radius:20px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono';font-size:9px;letter-spacing:1.5px;color:#555}
+.live{display:flex;align-items:center;gap:6px;color:#22c55e}.live i{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 10px #22c55e;animation:pulse 1s infinite}@keyframes pulse{50%{transform:scale(1.5)}}
+.hero{padding:36px 8px 10px;text-align:center}
+.hero h1{font-family:'Fraunces';font-size:48px;line-height:.9;letter-spacing:-2px;font-weight:900}.hero h1 em{font-style:italic;color:#ff4d1c}
+.hero p{color:#666;font-size:13.5px;line-height:1.6;margin-top:16px;max-width:340px;margin-inline:auto}
+.stat{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:26px}
+.stat div{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px);border-radius:18px;padding:14px;text-align:center}
+.stat b{font-family:'Fraunces';font-size:20px;display:block}.stat span{font-family:'JetBrains Mono';font-size:8px;letter-spacing:1px;color:#666}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(30px);border-radius:28px;padding:22px;margin-top:20px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;left:-30%;width:160%;height:160%;background:radial-gradient(circle at 20% 20%,rgba(255,77,28,.18),transparent 40%);pointer-events:none}
+.label{font-family:'JetBrains Mono';font-size:9px;letter-spacing:2.5px;color:#666;font-weight:700}
+.bigNum{font-size:34px;font-weight:800;letter-spacing:-1px;margin-top:8px;display:flex;align-items:center;gap:10px}.verified{background:#ff4d1c;color:#fff;font-size:9px;padding:3px 8px;border-radius:100px;letter-spacing:1px}
+.targetBox{margin-top:20px;background:#0e0e0e;border:1px solid #1e1e1e;border-radius:20px;padding:14px}
+.progressHead{display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:9px;color:#666;letter-spacing:1px}
+.bar2{height:12px;background:#1a1a1a;border-radius:100px;margin-top:10px;overflow:hidden;position:relative}
+.bar2 div{height:100%;background:linear-gradient(90deg,#ff4d1c 0%,#ff8a4c 50%,#fff 100%);background-size:200% 100%;border-radius:100px;box-shadow:0 0 30px rgba(255,77,28,.6);transition:1s cubic-bezier(.8,0,.2,1);animation:sh 2s linear infinite}@keyframes sh{to{background-position:200% 0}}
+.btn{width:100%;padding:18px;border-radius:18px;border:none;font-weight:800;font-size:14px;margin-top:12px;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px}.btn:active{transform:scale(.97)}.btnO{background:#ff4d1c;color:#fff;box-shadow:0 10px 30px rgba(255,77,28,.35)}.btnW{background:#fff;color:#111}
+select,input{width:100%;padding:16px;border-radius:16px;border:1px solid #222;background:#0a0a0a;color:#fff;font-weight:700;font-size:14px;margin-top:12px;outline:none;font-family:'Plus Jakarta Sans'}
+.price{background:#fff;color:#111;border-radius:22px;padding:18px;margin-top:14px;display:none;text-align:center}.price.show{display:block}
+
+/* WHO PAID PRO TABLE */
+.vaultList{margin-top:22px;background:rgba(10,10,10,.8);border:1px solid #1c1c1c;border-radius:28px;overflow:hidden;backdrop-filter:blur(20px)}
+.vHead{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid #1e1e1e}
+.vHead h2{font-family:'Fraunces';font-size:20px}.count{background:#1a1a1a;border:1px solid #222;padding:6px 12px;border-radius:100px;font-family:'JetBrains Mono';font-size:10px;color:#888}
+.rowHead{display:grid;grid-template-columns:36px 1fr 90px 70px;gap:10px;padding:10px 20px;background:#0a0a0a;font-family:'JetBrains Mono';font-size:8px;letter-spacing:1.5px;color:#444}
+.row{display:grid;grid-template-columns:36px 1fr 90px 70px;gap:10px;padding:14px 20px;border-top:1px solid #111;align-items:center;transition:.2s}
+.row:hover{background:rgba(255,77,28,.04)}
+.row.no{width:26px;height:26px;background:#141414;border:1px solid #222;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:#666}
+.row.paid.no{background:#ff4d1c;color:#fff;border-color:#ff4d1c;box-shadow:0 0 15px rgba(255,77,28,.4)}
+.avatar{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#222,#111);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#555;border:1px solid #1e1e1e}
+.row.paid.avatar{background:linear-gradient(135deg,#ff4d1c,#ff8a4c);color:#fff}
+.amount{font-weight:800;color:#22c55e;font-size:13px}
+.empty{color:#2a2a2a;font-family:'JetBrains Mono';font-size:12px}
+.term{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:1px solid #1a1a1a;padding:14px;transform:translateY(100%);transition:.5s cubic-bezier(.8,0,.2,1);z-index:100;max-height:80vh;overflow:auto}
+.term.show{transform:translateY(0)}
 </style>
 </head>
 <body>
-
+<canvas id="canvas"></canvas>
 <div id="loader">
-<div class="logo"><div class="ring"></div> JOHN'S <b>FAMILY</b></div>
-<div class="sub">PRIVATE FAMILY LINK</div>
+<div class="vault"><div class="ring"></div></div>
+<div style="margin-top:22px;font-family:'Fraunces';font-size:22px;letter-spacing:-1px;font-weight:900">JOHN'S <span style="color:#ff4d1c">FAMILY</span></div>
+<div class="type"><div class="dots"><span></span> <span style="animation-delay:.2s"></span> <span style="animation-delay:.4s"></span></div> DECRYPTING VAULT • AES-256</div>
 <div class="bar"><div class="fill"></div></div>
-<div class="wow"><div class="dot"></div> Secured • Encrypted • Family Only</div>
+<div class="mono" style="margin-top:16px;font-size:8px;letter-spacing:2px;color:#333">SECURED BY SHAFIC • NKOZI • 2026</div>
 </div>
 
 <div id="page">
+<div class="top"><div>◍ VAULT_ID: JF-50K-2026 • ENCRYPTED</div><div class="live"><i></i> LIVE</div></div>
+
 <div class="hero">
-<h1>Unlock <i>Home.</i><br>50K to Open.</h1>
-<p>Our family website is built. But Contribute 50,000 UGX together so that i unlock it ( IT'S ME SHAFIC WHO DESIGNED IT). This is our home online ❤️</p>
-</div>
-
-<div class="glass">
-<div style="font-size:10px;letter-spacing:2px;color:#666;font-weight:700">OFFICIAL PAYMENT • SEND TO:</div>
-<div class="num">0742 294 974</div>
-<div style="margin-top:6px;font-size:15px;font-weight:700">Nanono Mariam <span style="background:#ff4d1c;color:#fff;padding:2px 8px;border-radius:100px;font-size:11px;margin-left:6px">VERIFIED ✓</span></div>
-<div style="color:#666;font-size:13px;margin-top:4px">MTN Mobile Money • Airtel Money • Same Number</div>
-
-<div class="pay2">
-<div>📱<br>MTN MoMo<br><small style="font-size:12px;color:#666">0742294974</small></div>
-<div>📱<br>Airtel Money<br><small style="font-size:12px;color:#666">0742294974</small></div>
-</div>
-
-<div class="steps">
-<b>HOW TO PAY - 30 SECONDS:</b>
-<p>
-<strong>1.</strong> Open <strong>MTN MoMo / Airtel Money</strong><br>
-<strong>2.</strong> Tap <strong>Send Money</strong><br>
-<strong>3.</strong> Number: <strong style="color:#ff4d1c">0742294974</strong><br>
-<strong>4.</strong> Name shows: <strong>Nanono Mariam ✓</strong><br>
-<strong>5.</strong> Enter amount (see below) → Send<br>
-<strong>6.</strong> Screenshot the transaction massage and send on my WhatsApp same number
-</p>
+<h1>Unlock<br><em>Home.</em></h1>
+<p>Family website is built & encrypted. Contribute <b style="color:#fff">50,000 UGX</b> together to decrypt. Designed by <b style="color:#ff4d1c">Shafic</b> ❤️</p>
+<div class="stat">
+<div><b id="s_total">0</b><span>TOTAL UGX</span></div>
+<div><b id="s_paid">0</b><span>PAID</span></div>
+<div><b id="s_left">50K</b><span>LEFT</span></div>
 </div>
 </div>
 
-<div class="calcCard">
-<h2 style="font-size:22px;letter-spacing:-0.5px">How much do I pay? 💰</h2>
-<p style="color:#777;font-size:13px;margin-top:4px">We made it fair by age</p>
+<div class="card">
+<div class="label">OFFICIAL PAYMENT PROTOCOL • VERIFIED NODE</div>
+<div class="bigNum">0742 294 974 <span class="verified">VERIFIED ✓</span></div>
+<div style="color:#666;font-size:12px;margin-top:6px;font-family:'JetBrains Mono'">Nanono Mariam • MTN MoMo • Airtel Money • Same Number</div>
 
-<select id="age" onchange="calc()">
-<option value="">👇 Select your age group</option>
-<option value="young">👶 18 YEARS BELOW - Young (Below 18)</option>
-<option value="old">🧔 18 YEARS ABOVE - Elder (18 & above)</option>
-</select>
-
-<div id="price" class="price">
-<div style="font-size:11px;letter-spacing:2px;opacity:.7">YOUR CONTRIBUTION:</div>
-<b id="amt" style="font-size:26px;position:relative">0 UGX</b>
-<div id="det" style="font-size:12px;margin-top:6px;opacity:.8;position:relative"></div>
-<button class="btn btnW" onclick="wa()" style="position:relative">💬 Send Proof to 0742294974</button>
-</div>
+<div class="targetBox">
+<div class="progressHead"><span>DECRYPTION PROGRESS</span><span id="percTxt">60% • 30,000 / 50,000</span></div>
+<div class="bar2"><div id="barFill" style="width:60%"></div></div>
+<div class="mono" style="font-size:8px;color:#444;margin-top:8px;letter-spacing:1px">> SYSTEM: Waiting for family contributions... 0742294974</div>
 </div>
 
-<div class="calcCard" style="background:#0f0f0f;color:#fff;border:1px solid #222">
-<div style="font-size:10px;letter-spacing:2px;color:#555;font-weight:700">HAVE CODE? UNLOCK HERE:</div>
-<input id="code" placeholder="ENTER CODE" style="background:#111;border-color:#222;color:#fff">
-<button class="btn btnO" onclick="unlock()">UNLOCK FAMILY LINK 🔓</button>
-<button class="btn" style="background:#1a1a1a;color:#fff;border:1px solid #222" onclick="wa()">I HAVE PAID ✅</button>
+<select id="age" onchange="calc()"><option value="">👇 SELECT AGE GROUP</option><option value="young">👶 BELOW 18 YEARS - Young</option><option value="old">🧔 18 YEARS & ABOVE - Elder</option></select>
+<div id="price" class="price"><b id="amt" style="font-size:20px">0 UGX</b><div id="det" style="font-size:11px;color:#666;margin-top:4px"></div><button class="btn btnW" onclick="wa()">💬 Send Proof on WhatsApp</button></div>
 
-<div class="target">
-<div style="font-size:13px">🎯 Total Target: <b style="color:#ff4d1c">50,000 UGX</b></div>
-<div class="bar2"><div style="width:60%"></div></div>
-<div style="font-size:11px;color:#555;margin-top:8px">Live • 0742294974 - Nanono Mariam • Admin Shafic</div>
-</div>
+<div style="margin-top:16px"><input id="code" placeholder="ENTER CODE or ADMIN KEY" style="text-align:center;letter-spacing:2px"><button class="btn btnO" onclick="unlock()">DECRYPT VAULT 🔓</button></div>
 </div>
 
-<div style="text-align:center;color:#444;font-size:10px;letter-spacing:2px;padding:30px 0">JOHN'S FAMILY • NKOZI • 2026 • MADE WITH LOVE ❤️</div>
+<div class="vaultList">
+<div class="vHead"><h2>Contributors Vault</h2><div class="count" id="countBadge">0/25 SECURED</div></div>
+<div class="rowHead"><div>#</div><div>IDENTITY</div><div>AMOUNT</div><div>STATUS</div></div>
+<div id="list"></div>
+</div>
+
+<!-- TERMINAL ADMIN -->
+<div id="term" class="term">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b class="mono" style="color:#ff4d1c;font-size:12px">> ROOT_ACCESS • SHAFIC_TERMINAL</b><button onclick="document.getElementById('term').classList.remove('show')" style="background:#1a1a1a;border:1px solid #222;color:#666;padding:6px 12px;border-radius:8px">X</button></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<input id="a_name" placeholder="Name"><input id="a_amount" placeholder="Amount e.g 5000">
+<input id="a_no" type="number" placeholder="# 1-25"><input id="a_phone" placeholder="Phone (optional)">
+</div>
+<button class="btn btnO" onclick="addPayer()">EXECUTE • ADD TO VAULT</button>
+<button class="btn" style="background:#111;color:#666;border:1px solid #222" onclick="clearAll()">WIPE VAULT</button>
+<div class="mono" style="font-size:8px;color:#333;margin-top:10px">TIP: Bar auto-calculates from total. To manually set %, type number like 80 in code box while admin open.</div>
+</div>
+
+<div style="text-align:center;color:#222;font-family:'JetBrains Mono';font-size:8px;letter-spacing:2px;padding:30px 0">JOHN'S FAMILY • NKOZI • BUILT BY SHAFIC • 2026 • AES-256 ENCRYPTED ❤️</div>
 </div>
 
 <script>
+// Matrix rain
+const c=document.getElementById('canvas'),x=c.getContext('2d');let w,h,cols,ys;
+function rs(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.floor(w/14);ys=Array(cols).fill(0)}rs();window.onresize=rs;
+setInterval(()=>{x.fillStyle='rgba(5,5,7,0.08)';x.fillRect(0,0,w,h);x.fillStyle='#ff4d1c22';x.font='12px JetBrains Mono';ys.forEach((y,i)=>{x.fillText(String.fromCharCode(33+Math.random()*94),i*14,y);ys[i]=y>h+Math.random()*1000?0:y+14})},50);
+
 setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('page').classList.add('show')},3000)
+
+const ADMIN="Shafic123"; // YOUR HACKER ADMIN KEY
 const CODES={young:"YOUNG50",old:"OLD70",master:"JOHNS50K"};
-function calc(){
- let v=document.getElementById('age').value, p=document.getElementById('price'), a=document.getElementById('amt'), d=document.getElementById('det');
- if(!v) return; p.classList.add('show');
- if(v==='young'){a.innerText="BELOW 7,000 UGX";d.innerText="Young (18 BELOW) → Pay 3,000 / 4,000 / 5,000 / 6,000";}
- else {a.innerText="7,000 UGX & ABOVE";d.innerText="Old (18 ABOVE) → Pay 7,000 / 10,000 / 15,000+";}
+let payers=JSON.parse(localStorage.getItem('johns_payers_v2')||'[]');
+let isAdmin=false;
+
+function render(){
+ let html='',total=0;
+ for(let i=1;i<=25;i++){
+  let p=payers.find(a=>a.no==i);
+  if(p){total+=parseInt(p.amount)||0; html+=`<div class="row paid"><div class="no">${i}</div><div style="display:flex;gap:10px;align-items:center"><div class="avatar">${p.name[0].toUpperCase()}</div><div><b style="font-size:13px">${p.name}</b><br><span class="mono" style="font-size:9px;color:#555">${p.phone||'0742•••'} • ${p.date}</span></div></div><div class="amount">${p.amount} UGX</div><div class="mono" style="font-size:8px;color:#22c55e">● VERIFIED</div></div>`}
+  else{ html+=`<div class="row"><div class="no">${i}</div><div style="display:flex;gap:10px;align-items:center"><div class="avatar">?</div><div class="empty">LOCKED SLOT</div></div><div class="empty">--</div><div class="mono" style="font-size:8px;color:#333">○ WAITING</div></div>`}
+ }
+ document.getElementById('list').innerHTML=html;
+ let perc=Math.min(100,Math.round(total/50000*100));
+ document.getElementById('barFill').style.width=perc+'%';
+ document.getElementById('percTxt').innerText=perc+'% • '+total.toLocaleString()+' / 50,000';
+ document.getElementById('s_total').innerText=total.toLocaleString();
+ document.getElementById('s_paid').innerText=payers.length;
+ document.getElementById('s_left').innerText=(50000-total).toLocaleString();
+ document.getElementById('countBadge').innerText=payers.length+'/25 SECURED';
+ localStorage.setItem('collected',perc);
 }
-function wa(){
- let v=document.getElementById('age').value;
- let msg=v==='young'?"Hi Shafic, I am YOUNG (18 BELOW), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached l What A Code To Enter.":"Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.";
- window.open("https://wa.me/256742294974?text="+encodeURIComponent(msg),"_blank");
-}
+function calc(){let v=age.value,p=document.getElementById('price');if(!v)return;p.classList.add('show');amt.innerText=v=='young'?'BELOW 7,000 UGX':'7,000 UGX & ABOVE';det.innerText=v=='young'?'Young → Pay 3k/4k/5k/6k':'Elder → Pay 7k/10k/15k+';}
+function wa(){let m=age.value=='young'?'Hi Shafic, I am YOUNG (BELOW 18), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached':'Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.';open('https://wa.me/256742294974?text='+encodeURIComponent(m),'_blank')}
 function unlock(){
- let c=document.getElementById('code').value.trim().toUpperCase();
- if(c===CODES.young||c===CODES.old||c===CODES.master){alert("✅ WOW! Welcome Home! Family Link Soon Going To Be Unlocked Thanks for your contribution( NOT YET 50000)! ❤️");}
- else alert("❌ Wrong code! Pay to 0742294974 Nanono Mariam then WhatsApp proof to SAME number 0742294974");
+ let c=code.value.trim().toUpperCase();
+ if(c===ADMIN.toUpperCase()){isAdmin=true;document.getElementById('term').classList.add('show');alert('🔓 ROOT ACCESS GRANTED • Welcome Admin Shafic');return}
+ if(isAdmin &&!isNaN(c.replace('%',''))){let n=parseInt(c);if(n>=0&&n<=100){document.getElementById('barFill').style.width=n+'%';document.getElementById('percTxt').innerText=n+'% • MANUAL OVERRIDE';alert('Manual bar set to '+n+'%');return}}
+ if(Object.values(CODES).includes(c)){alert('✅ DECRYPTED! Welcome Home! Family Link Opening Soon ❤️');return}
+ alert('❌ ACCESS DENIED • Invalid code! Pay to 0742294974 then WhatsApp proof');
 }
+function addPayer(){
+ let name=a_name.value.trim(),amount=a_amount.value.trim(),no=parseInt(a_no.value),phone=a_phone.value.trim();
+ if(!name||!amount||!no||no<1||no>25) return alert('Fill Name, Amount, #1-25');
+ payers=payers.filter(x=>x.no!=no);payers.push({no,name,amount,phone,date:new Date().toLocaleDateString()});payers.sort((a,b)=>a.no-b.no);
+ localStorage.setItem('johns_payers_v2',JSON.stringify(payers));render();a_name.value='';a_amount.value='';a_no.value='';alert('✅ VAULT UPDATED #'+no);
+}
+function clearAll(){if(confirm('WIPE ALL 25? This is irreversible!')){payers=[];localStorage.removeItem('johns_payers_v2');render()}}
+render();
 </script>
 </body>
-                                                                   </html>
+ </html>
