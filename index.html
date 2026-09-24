@@ -2,199 +2,119 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Family • Private Home</title>
+<title>John's Family • Official</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;800&family=Fraunces:opsz,wght@9..144,800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#070709;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#f6f5f2;color:#111;font-family:'Plus Jakarta Sans',sans-serif}
 h1,h2{font-family:'Fraunces',serif}
-#loader{position:fixed;inset:0;background:#070709;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.8s}
-#loader.hide{transform:translateY(-100%);opacity:0}
-.logoBox{width:84px;height:84px;background:#111;border:1px solid #222;border-radius:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,77,28,.15)}
-.ring{width:36px;height:36px;border:2px solid #222;border-top-color:#ff4d1c;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-.bar{width:260px;height:4px;background:#151515;border-radius:100px;margin-top:24px;overflow:hidden}.fill{height:100%;width:0%;background:#ff4d1c;animation:load 2s forwards}@keyframes load{to{width:100%}}
-.loaderMsg{margin-top:20px;text-align:center;padding:0 24px;max-width:340px}
-.loaderMsg b{font-size:15px;line-height:1.3;display:block}
-.loaderMsg p{font-size:11px;color:#666;margin-top:8px;line-height:1.5;letter-spacing:.3px}
-
-#page{max-width:440px;margin:0 auto;padding:14px 14px 90px;display:none}#page.show{display:block}
-.topNav{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(10,10,10,.9);backdrop-filter:blur(20px);border-top:1px solid #1c1c1c;display:flex;padding:10px;gap:10px}
-.topNav button{flex:1;padding:14px;border-radius:14px;border:1px solid #222;background:#111;color:#666;font-weight:800;font-size:12px;letter-spacing:.5px}
-.topNav button.active{background:#fff;color:#111;border-color:#fff;box-shadow:0 8px 20px rgba(255,255,255,.15)}
-.screen{display:none}.screen.active{display:block;animation:up .4s ease}@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-.hero{text-align:center;padding:20px 8px 10px}.hero h1{font-size:40px;line-height:.9;letter-spacing:-1.5px}.hero h1 em{font-style:italic;color:#ff4d1c}
-.pill{margin:12px auto 0;background:#111;border:1px solid #222;padding:8px 14px;border-radius:100px;font-size:10px;color:#888;display:inline-flex;gap:8px;align-items:center;letter-spacing:1px}
-.card{background:#0f0f0f;border:1px solid #1e1e1e;border-radius:24px;padding:18px;margin-top:16px}
-.cardWhite{background:#fff;color:#111;border-radius:24px;padding:20px;margin-top:16px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.num{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:6px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.grid2 div{background:#fff;color:#111;padding:12px;border-radius:14px;text-align:center;font-weight:800;font-size:13px}
-.stat3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}
-.stat3 div{background:#151515;border:1px solid #222;border-radius:16px;padding:12px;text-align:center}
-.stat3 b{font-size:16px;display:block}.stat3 span{font-size:8px;color:#666;letter-spacing:1px}
-.bar2{height:10px;background:#1c1c1c;border-radius:100px;margin-top:10px;overflow:hidden}.bar2 div{height:100%;background:linear-gradient(90deg,#ff4d1c,#ffae8a);border-radius:100px;transition:1s}
-.btn{width:100%;padding:16px;border-radius:14px;border:none;font-weight:800;font-size:13px;margin-top:10px}.btnO{background:#ff4d1c;color:#fff}.btnW{background:#25D366;color:#fff}.btnD{background:#111;color:#fff;border:1px solid #222}
-select,input{width:100%;padding:14px;border-radius:14px;border:1px solid #222;background:#0a0a0a;color:#fff;font-weight:700;margin-top:10px;outline:none}
-.price{background:#111;border:1px solid #222;border-radius:16px;padding:14px;margin-top:10px;display:none;text-align:center}.price.show{display:block}
-
-.listCard{background:#0f0f0f;border:1px solid #1e1e1e;border-radius:24px;overflow:hidden;margin-top:16px}
-.listHead{padding:16px 18px;background:#121212;border-bottom:1px solid #1e1e1e;display:flex;justify-content:space-between;align-items:center}
-.badge{background:#ff4d1c;color:#fff;padding:4px 10px;border-radius:100px;font-size:10px;font-weight:800}
-.headRow{display:grid;grid-template-columns:36px 1fr 90px;gap:8px;padding:10px 18px;background:#0a0a0a;font-size:9px;color:#555;letter-spacing:1px;font-weight:700}
-.row{display:grid;grid-template-columns:36px 1fr 90px;gap:8px;padding:13px 18px;border-top:1px solid #151515;align-items:center}
-.row b{font-size:13px}.row small{font-size:10px;color:#666}
-.no{width:28px;height:28px;background:#161616;border:1px solid #222;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#666}
-.no.done{background:#ff4d1c;color:#fff;border-color:#ff4d1c}
-.empty{color:#333}
-.adminBox{display:none;margin-top:12px;background:#000;border:1px dashed #ff4d1c;border-radius:14px;padding:12px}.adminBox.show{display:block}
+#loader{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#loader.hide{transform:translateY(-100%);transition:.8s;opacity:0}
+.logoBox{width:90px;height:90px;background:#111;border-radius:26px;display:flex;align-items:center;justify-content:center}
+.ring{width:38px;height:38px;border:3px solid #333;border-top-color:#ff4d1c;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.barWrap{width:300px;margin-top:24px}
+.bar{width:100%;height:6px;background:#eee;border-radius:100px;overflow:hidden;position:relative}
+.fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:linear-gradient(90deg,#ff4d1c,#ffae8a);border-radius:100px;transition:2.5s linear}
+.bar2{width:100%;height:6px;background:#eee;border-radius:100px;overflow:hidden;margin-top:12px;position:relative}
+.fill2{position:absolute;left:0;top:0;bottom:0;width:0%;background:linear-gradient(90deg,#111,#ff4d1c);border-radius:100px;transition:2.5s linear}
+.loaderStep{background:#fff;border:1.5px solid #ece9e4;border-radius:20px;padding:16px;width:300px;margin-top:16px;text-align:left}
+.stepNum{width:24px;height:24px;background:#111;color:#fff;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-right:8px}
+.stepNum.done{background:#22c55e}
+#page{max-width:480px;margin:0 auto;padding:14px 14px 100px;display:none}#page.show{display:block}
+.topBar{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-top:1px solid #e9e6e0;display:flex;gap:10px;padding:12px}
+.topBar button{flex:1;padding:15px;border-radius:14px;border:1.5px solid #e9e6e0;background:#fff;color:#888;font-weight:800;font-size:12px}
+.topBar button.active{background:#111;color:#fff;border-color:#111}
+.screen{display:none}.screen.active{display:block}
+.hero{text-align:center;padding:22px 10px 10px}.hero h1{font-size:42px;line-height:.9;letter-spacing:-1.8px}.hero h1 em{font-style:italic;color:#ff4d1c}
+.badgeLive{display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:8px 14px;border-radius:100px;font-size:10px;letter-spacing:1px;margin-top:12px;font-weight:700}
+.cardWhite{background:#fff;border:1.5px solid #ece9e4;border-radius:26px;padding:20px;margin-top:16px;box-shadow:0 10px 30px rgba(0,0,0,.04)}
+.label{font-size:10px;letter-spacing:2px;color:#999;font-weight:700}.bigNum{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.verified{background:#111;color:#fff;padding:4px 10px;border-radius:100px;font-size:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.grid2 div{background:#f6f5f2;border:1.5px solid #ece9e4;padding:14px;border-radius:16px;text-align:center;font-weight:800;font-size:13px}
+.stat3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}.stat3 div{background:#111;color:#fff;border-radius:18px;padding:14px;text-align:center}.stat3 div:nth-child(2){background:#ff4d1c}.stat3 b{font-family:'Fraunces';font-size:18px;display:block}.stat3 span{font-size:8px;opacity:.7}
+.progressBox{margin-top:16px;background:#f6f5f2;border:1.5px solid #ece9e4;border-radius:18px;padding:14px}
+.bar2Main{height:14px;background:#e9e6e0;border-radius:100px;margin-top:10px;overflow:hidden}.bar2Main div{height:100%;background:linear-gradient(90deg,#111,#ff4d1c);border-radius:100px;transition:1s}
+.btn{width:100%;padding:16px;border-radius:14px;border:none;font-weight:800;font-size:13px;margin-top:10px}.btnBlack{background:#111;color:#fff}.btnOrange{background:#ff4d1c;color:#fff}.btnGreen{background:#25D366;color:#fff}.btnLight{background:#f6f5f2;border:1.5px solid #ece9e4;color:#111}
+select,input{width:100%;padding:15px;border-radius:14px;border:1.5px solid #e9e6e0;background:#faf8f5;color:#111;font-weight:700;font-size:13px;margin-top:10px;outline:none}
+.priceBox{background:#111;color:#fff;border-radius:18px;padding:16px;margin-top:12px;display:none;text-align:center}.priceBox.show{display:block}
+.listWrap{background:#fff;border:1.5px solid #ece9e4;border-radius:26px;overflow:hidden;margin-top:16px}
+.listHead{padding:18px 20px;background:#f6f5f2;border-bottom:1.5px solid #ece9e4;display:flex;justify-content:space-between;align-items:center}
+.countPill{background:#111;color:#fff;padding:6px 12px;border-radius:100px;font-size:11px;font-weight:800}
+.headRow{display:grid;grid-template-columns:40px 1fr 90px;gap:10px;padding:12px 20px;background:#faf8f5;font-size:9px;color:#999;font-weight:800}
+.row{display:grid;grid-template-columns:40px 1fr 90px;gap:10px;padding:14px 20px;border-top:1px solid #f0ece6;align-items:center}
+.no{width:30px;height:30px;background:#f6f5f2;border:1.5px solid #ece9e4;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#999}
+.no.done{background:#111;color:#fff;border-color:#111}
+.adminBox{display:none;margin-top:12px;background:#fffbe6;border:1.5px dashed #ffb020;border-radius:16px;padding:14px}.adminBox.show{display:block}
 </style>
 </head>
 <body>
 
 <div id="loader">
 <div class="logoBox"><div class="ring"></div></div>
-<div style="margin-top:18px;font-family:'Fraunces';font-weight:800;font-size:20px">JOHN'S <span style="color:#ff4d1c">FAMILY</span></div>
-<div class="bar"><div class="fill"></div></div>
-<div class="loaderMsg">
-<b id="loaderTitle">Decrypting Family Vault...</b>
-<p id="loaderSub">Please wait • Secured by Shafic • AES-256</p>
+<div style="margin-top:14px;font-family:'Fraunces';font-size:20px;font-weight:800">JOHN'S <span style="color:#ff4d1c">FAMILY</span></div>
+
+<div class="loaderStep" id="step1">
+<div style="display:flex;align-items:center;font-weight:800;font-size:12px"><span class="stepNum" id="s1Num">1</span> STEP 1: Decrypting Vault...</div>
+<div class="bar"><div class="fill" id="fill1"></div></div>
+<div style="font-size:10px;color:#999;margin-top:8px" id="s1Text">Connecting to family server...</div>
+</div>
+
+<div class="loaderStep" id="step2" style="opacity:.4">
+<div style="display:flex;align-items:center;font-weight:800;font-size:12px"><span class="stepNum" id="s2Num">2</span> STEP 2: Unlock Status</div>
+<div class="bar2"><div class="fill2" id="fill2"></div></div>
+<div style="font-size:11px;color:#111;margin-top:8px;font-weight:700;line-height:1.4" id="s2Text">The link is already done but you need to pay Shafic the design to open. Follow steps.</div>
 </div>
 </div>
 
 <div id="page">
-<!-- SCREEN 1: HOME -->
 <div id="screenHome" class="screen active">
-<div class="hero">
-<h1>Unlock <em>Home.</em><br>50K to Open.</h1>
-<div class="pill"><span style="width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;display:inline-block"></span> LIVE • VAULT ID: JF-50K • NKOZI</div>
-<p style="color:#666;font-size:12px;margin-top:12px;line-height:1.5">Family website is fully built. Contribute together so Shafic unlocks it. Made with love ❤️</p>
-</div>
-
-<div class="card">
-<div style="font-size:9px;letter-spacing:2px;color:#666;font-weight:700">OFFICIAL PAYMENT • SEND TO:</div>
-<div class="num">0742 294 974 <span style="background:#ff4d1c;color:#fff;padding:2px 8px;border-radius:100px;font-size:10px">VERIFIED ✓</span></div>
-<div style="font-size:13px;margin-top:4px;font-weight:700">Nanono Mariam • <span style="color:#666;font-weight:400">MTN • Airtel Same Number</span></div>
-<div class="grid2"><div>📱 MTN MoMo<br><small style="color:#666">0742294974</small></div><div>📱 Airtel Money<br><small style="color:#666">0742294974</small></div></div>
-
+<div class="hero"><h1>Unlock <em>Home.</em><br>50K to Open.</h1><div class="badgeLive">● LIVE • NKOZI • 2026</div><p style="color:#777;font-size:12px;margin-top:12px;line-height:1.6">Website built by <b style="color:#111">Shafic</b>. Contribute 50K together to unlock ❤️</p></div>
+<div class="cardWhite"><div class="label">OFFICIAL PAYMENT • VERIFIED</div><div class="bigNum">0742 294 974 <span class="verified">VERIFIED ✓</span></div><div style="font-size:12px;margin-top:4px;font-weight:700">Nanono Mariam <span style="color:#999;font-weight:500">• MTN • Airtel Same Number</span></div><div class="grid2"><div>📱 MTN MoMo<br><small style="color:#777">0742294974</small></div><div>📱 Airtel Money<br><small style="color:#777">0742294974</small></div></div>
 <div class="stat3"><div><b id="s_total">0</b><span>TOTAL</span></div><div><b id="s_paid">0</b><span>PAID</span></div><div><b id="s_left">50K</b><span>LEFT</span></div></div>
-
-<div style="margin-top:14px;background:#111;border:1px solid #222;border-radius:16px;padding:12px">
-<div style="display:flex;justify-content:space-between;font-size:9px;color:#666;letter-spacing:1px"><span>PROGRESS</span><span id="percTxt">0% • 0 / 50,000 UGX</span></div>
-<div class="bar2"><div id="barFill" style="width:0%"></div></div>
+<div class="progressBox"><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:#999"><span>PROGRESS</span><span id="percTxt" style="color:#111">0% • 0 / 50,000</span></div><div class="bar2Main"><div id="barFill" style="width:0%"></div></div></div>
+</div>
+<div class="cardWhite" style="background:#111;color:#fff;border-color:#111">
+<h2 style="color:#fff;font-size:18px">How much do I pay? 💰</h2>
+<select id="age" onchange="calc()" style="background:#1a1a1a;border-color:#2a2a2a;color:#fff"><option value="">👇 Select age group</option><option value="young">👶 BELOW 18 - Young</option><option value="old">🧔 18 & ABOVE - Elder</option></select>
+<div id="price" class="priceBox"><b id="amt" style="font-size:18px">0 UGX</b><div id="det" style="font-size:11px;color:#999;margin-top:4px"></div><button class="btn btnGreen" onclick="wa()">💬 Send Proof to WhatsApp</button></div>
+<input id="code" placeholder="ENTER CODE" style="background:#1a1a1a;border-color:#2a2a2a;color:#fff;text-align:center"><button class="btn btnOrange" onclick="unlock()">UNLOCK LINK 🔓</button><button class="btn" style="background:#222;color:#fff;border:1px solid #333" onclick="showScreen('paid')">View Those Who Paid →</button>
+<div id="adminBox" class="adminBox"><b style="color:#111">🔐 ADMIN SHAFIC</b><input id="a_name" placeholder="Name"><input id="a_amount" placeholder="Amount"><input id="a_no" type="number" placeholder="# 1-25"><button class="btn btnBlack" onclick="addPayer()">Add ✅</button><button class="btn btnLight" onclick="clearAll()">Clear All 🗑️</button></div>
 </div>
 </div>
 
-<div class="cardWhite">
-<h2 style="font-size:18px">How much do I pay? 💰</h2>
-<p style="color:#777;font-size:11px;margin-top:2px">Fair by age</p>
-<select id="age" onchange="calc()"><option value="">👇 Select your age group</option><option value="young">👶 18 YEARS BELOW - Young (Below 18)</option><option value="old">🧔 18 YEARS ABOVE - Elder (18+)</option></select>
-<div id="price" class="price"><b id="amt" style="font-size:18px;color:#111">0 UGX</b><div id="det" style="font-size:11px;color:#666;margin-top:4px"></div><button class="btn btnW" onclick="wa()">💬 Send Proof to 0742294974</button></div>
-<input id="code" placeholder="ENTER CODE" style="background:#fafafa;color:#111;border-color:#eee;text-align:center;letter-spacing:1px">
-<button class="btn btnO" onclick="unlock()">UNLOCK FAMILY LINK 🔓</button>
-<button class="btn btnD" onclick="showScreen('paid')">View Those Who Paid 👨‍👩‍👧‍👦</button>
-
-<div id="adminBox" class="adminBox">
-<b style="color:#ff4d1c;font-size:11px">🔐 ADMIN SHAFIC ONLY</b>
-<input id="a_name" placeholder="Name e.g. John">
-<input id="a_amount" placeholder="Amount e.g. 5000">
-<input id="a_no" type="number" placeholder="Position 1-25">
-<button class="btn btnO" onclick="addPayer()" style="padding:12px">Add / Update ✅</button>
-<button class="btn btnD" onclick="clearAll()" style="padding:10px">Clear All 🗑️</button>
-</div>
-</div>
-
-<div style="text-align:center;color:#333;font-size:8px;letter-spacing:2px;padding:20px 0">JOHN'S FAMILY • MADE WITH LOVE ❤️ • 2026</div>
-</div>
-
-<!-- SCREEN 2: THOSE WHO PAID -->
 <div id="screenPaid" class="screen">
-<div style="padding:18px 6px 6px"><h1 style="font-size:34px;line-height:.9">Those Who<br><em style="color:#ff4d1c;font-style:italic">Paid</em> List</h1><p style="color:#666;font-size:12px;margin-top:10px">Transparent list • 1 to 25 • Live updates by Admin Shafic</p></div>
-
-<div class="stat3"><div><b id="s_total2">0</b><span>TOTAL UGX</span></div><div><b id="s_paid2">0</b><span>PAID COUNT</span></div><div><b id="s_perc2">0%</b><span>PROGRESS</span></div></div>
-
-<div class="listCard">
-<div class="listHead"><h2 style="font-size:16px">Contributors Vault 🔐</h2><span class="badge" id="badgeCount">0/25</span></div>
-<div class="headRow"><div>#</div><div>NAME</div><div>AMOUNT</div></div>
-<div id="list"></div>
-</div>
-
-<div class="card" style="text-align:center">
-<div style="font-size:11px;color:#666">Need to pay?</div>
-<button class="btn btnO" onclick="showScreen('home')">Go to HOME to Pay 💳</button>
-<div style="font-size:10px;color:#444;margin-top:10px">Pay to 0742294974 - Nanono Mariam • Then WhatsApp proof</div>
+<div style="padding:18px 8px 6px"><h1 style="font-size:36px;line-height:.9;color:#111">Those Who<br><em style="color:#ff4d1c;font-style:italic">Paid</em></h1><p style="color:#777;font-size:12px;margin-top:8px">Transparent list 1 to 25 • Live by Shafic</p></div>
+<div class="stat3"><div style="background:#fff;color:#111;border:1.5px solid #ece9e4"><b id="s_total2" style="color:#111">0</b><span style="color:#999">TOTAL</span></div><div><b id="s_paid2">0</b><span>PAID</span></div><div style="background:#111"><b id="s_perc2">0%</b><span>DONE</span></div></div>
+<div class="listWrap"><div class="listHead"><h2 style="font-size:16px;color:#111">Contributors 1-25</h2><span class="countPill" id="badgeCount">0/25</span></div><div class="headRow"><div>#</div><div>NAME</div><div>AMOUNT</div></div><div id="list"></div></div>
+<div class="cardWhite" style="text-align:center"><button class="btn btnBlack" onclick="showScreen('home')">Go to HOME to Pay 💳</button></div>
 </div>
 </div>
 
-</div>
-
-<div class="topNav">
-<button id="btnHome" class="active" onclick="showScreen('home')">🏠 HOME</button>
-<button id="btnPaid" onclick="showScreen('paid')">👨‍👩‍👧‍👦 THOSE WHO PAID</button>
-</div>
+<div class="topBar"><button id="btnHome" class="active" onclick="showScreen('home')">🏠 HOME</button><button id="btnPaid" onclick="showScreen('paid')">👨‍👩‍👧‍👦 THOSE WHO PAID</button></div>
 
 <script>
-// LOADER WITH YOUR MESSAGE
-let loaderTitle=document.getElementById('loaderTitle'), loaderSub=document.getElementById('loaderSub');
-setTimeout(()=>{loaderTitle.innerText="Link is Ready! ✅"; loaderSub.innerText="The link is already done but you need to pay Shafic the design to open. Follow steps below."; loaderSub.style.color="#ff8a4c"; loaderSub.style.fontSize="12px"; loaderSub.style.fontWeight="700";},2000);
-setTimeout(()=>{document.getElementById('loader').classList.add('hide'); document.getElementById('page').classList.add('show');},4500);
+// 2 LOADERS SAME TIME = 2.5sec each
+window.onload=()=>{
+ let f1=document.getElementById('fill1'), f2=document.getElementById('fill2'), s1N=document.getElementById('s1Num'), s2N=document.getElementById('s2Num'), s1T=document.getElementById('s1Text'), s2=document.getElementById('step2');
+ // Loader 1 starts
+ setTimeout(()=>{f1.style.width='100%'; s1T.innerText='Vault decrypted 100% ✓';},100);
+ setTimeout(()=>{s1N.innerText='✓'; s1N.classList.add('done'); s2.style.opacity='1'; f2.style.width='100%';},2500);
+ // Loader 2 same time 2.5s
+ setTimeout(()=>{s2N.innerText='✓'; s2N.classList.add('done');},5000);
+ setTimeout(()=>{document.getElementById('loader').classList.add('hide'); document.getElementById('page').classList.add('show');},5600);
+};
 
-const ADMIN="Shafic123";
-const CODES={young:"YOUNG50",old:"OLD70",master:"JOHNS50K"};
-let payers=JSON.parse(localStorage.getItem('johns_final')||'[]');
-
-function showScreen(name){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.querySelectorAll('.topNav button').forEach(b=>b.classList.remove('active'));
- if(name==='home'){document.getElementById('screenHome').classList.add('active'); document.getElementById('btnHome').classList.add('active');}
- else{document.getElementById('screenPaid').classList.add('active'); document.getElementById('btnPaid').classList.add('active');}
- window.scrollTo(0,0);
-}
-
+const ADMIN="Shafic123"; const CODES={young:"YOUNG50",old:"OLD70",master:"JOHNS50K"};
+let payers=JSON.parse(localStorage.getItem('johns_white_v2')||'[]');
+function showScreen(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.topBar button').forEach(b=>b.classList.remove('active'));if(n==='home'){screenHome.classList.add('active');btnHome.classList.add('active')}else{screenPaid.classList.add('active');btnPaid.classList.add('active')}scrollTo(0,0)}
 function render(){
- let html='',total=0;
- for(let i=1;i<=25;i++){
-  let p=payers.find(x=>x.no==i);
-  if(p){total+=parseInt(p.amount)||0; html+=`<div class="row"><div class="no done">${i}</div><div><b>${p.name}</b><br><small>${p.date} • ${p.phone||'Verified'}</small></div><div><b style="color:#22c55e">${p.amount} UGX</b><br><small style="color:#22c55e">● PAID</small></div></div>`;}
-  else{html+=`<div class="row"><div class="no">${i}</div><div class="empty">Waiting slot</div><div class="empty">--</div></div>`;}
- }
- document.getElementById('list').innerHTML=html;
- let perc=Math.min(100,Math.round(total/50000*100));
- document.getElementById('barFill').style.width=perc+'%';
- document.getElementById('percTxt').innerText=perc+'% • '+total.toLocaleString()+' / 50,000 UGX';
- document.getElementById('s_total').innerText=total.toLocaleString();
- document.getElementById('s_paid').innerText=payers.length;
- document.getElementById('s_left').innerText=(50000-total).toLocaleString();
- document.getElementById('s_total2').innerText=total.toLocaleString();
- document.getElementById('s_paid2').innerText=payers.length;
- document.getElementById('s_perc2').innerText=perc+'%';
- document.getElementById('badgeCount').innerText=payers.length+'/25';
- localStorage.setItem('johns_final',JSON.stringify(payers));
+ let h='',t=0;for(let i=1;i<=25;i++){let p=payers.find(x=>x.no==i);if(p){t+=parseInt(p.amount)||0;h+=`<div class="row"><div class="no done">${i}</div><div><div style="font-weight:800;font-size:13px">${p.name}</div><div style="font-size:10px;color:#999">${p.date} • Verified</div></div><div><div style="font-weight:800">${p.amount} UGX</div><div style="font-size:8px;background:#e7f9ed;color:#1a7a2e;padding:2px 6px;border-radius:100px;display:inline-block;font-weight:800">● PAID</div></div></div>`}else{h+=`<div class="row"><div class="no">${i}</div><div style="color:#bbb;font-size:12px">Empty slot</div><div style="color:#bbb">--</div></div>`}}
+ list.innerHTML=h;let perc=Math.min(100,Math.round(t/50000*100));barFill.style.width=perc+'%';percTxt.innerText=perc+'% • '+t.toLocaleString()+' / 50,000';s_total.innerText=t.toLocaleString();s_paid.innerText=payers.length;s_left.innerText=(50000-t).toLocaleString();s_total2.innerText=t.toLocaleString();s_paid2.innerText=payers.length;s_perc2.innerText=perc+'%';badgeCount.innerText=payers.length+'/25';localStorage.setItem('johns_white_v2',JSON.stringify(payers));
 }
-function calc(){
- let v=document.getElementById('age').value, p=document.getElementById('price');
- if(!v)return; p.classList.add('show');
- if(v==='young'){document.getElementById('amt').innerText='BELOW 7,000 UGX'; document.getElementById('det').innerText='Young (Below 18) → Pay 3,000 / 4,000 / 5,000 / 6,000';}
- else{document.getElementById('amt').innerText='7,000 UGX & ABOVE'; document.getElementById('det').innerText='Elder (18+) → Pay 7,000 / 10,000 / 15,000+';}
-}
-function wa(){
- let v=document.getElementById('age').value;
- let msg=v==='young'?'Hi Shafic, I am YOUNG (BELOW 18), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached':'Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.';
- window.open('https://wa.me/256742294974?text='+encodeURIComponent(msg),'_blank');
-}
-function unlock(){
- let c=document.getElementById('code').value.trim().toUpperCase();
- if(c===ADMIN.toUpperCase()){document.getElementById('adminBox').classList.add('show'); alert('🔐 ADMIN MODE ON - You can now add who paid!'); return;}
- if(Object.values(CODES).includes(c)){alert('✅ Welcome Home! Family link will open soon ❤️'); return;}
- alert('❌ Wrong code! Pay to 0742294974 then WhatsApp proof');
-}
-function addPayer(){
- let name=document.getElementById('a_name').value.trim(), amount=document.getElementById('a_amount').value.trim(), no=parseInt(document.getElementById('a_no').value);
- if(!name||!amount||!no||no<1||no>25) return alert('Fill Name, Amount, No 1-25');
- payers=payers.filter(x=>x.no!=no); payers.push({no, name, amount, date:new Date().toLocaleDateString(), phone:'Verified'}); payers.sort((a,b)=>a.no-b.no);
- render(); document.getElementById('a_name').value=''; document.getElementById('a_amount').value=''; document.getElementById('a_no').value='';
- alert('✅ Added #'+no+' '+name);
-}
-function clearAll(){if(confirm('Delete all 25?')){payers=[]; render();}}
+function calc(){let v=age.value,p=price;if(!v)return;p.classList.add('show');amt.innerText=v==='young'?'BELOW 7,000 UGX':'7,000 & ABOVE';det.innerText=v==='young'?'Pay 3k/4k/5k/6k':'Pay 7k/10k/15k+';}
+function wa(){let m=age.value==='young'?'Hi Shafic, I am YOUNG (BELOW 18), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached':'Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.';open('https://wa.me/256742294974?text='+encodeURIComponent(m),'_blank')}
+function unlock(){let c=code.value.trim().toUpperCase();if(c===ADMIN.toUpperCase()){adminBox.classList.add('show');alert('🔐 ADMIN ON');return}if(Object.values(CODES).includes(c)){alert('✅ Welcome Home!');return}alert('❌ Wrong code! Pay to 0742294974')}
+function addPayer(){let n=a_name.value.trim(),a=a_amount.value.trim(),no=parseInt(a_no.value);if(!n||!a||!no||no<1||no>25)return alert('Fill all');payers=payers.filter(x=>x.no!=no);payers.push({no,name:n,amount:a,date:new Date().toLocaleDateString()});payers.sort((a,b)=>a.no-b.no);render();a_name.value='';a_amount.value='';a_no.value='';alert('Added #'+no)}
+function clearAll(){if(confirm('Delete all?')){payers=[];render()}}
 render();
 </script>
 </body>
