@@ -2,149 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Family - Contribution</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<title>John's Family • Private Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#0f0f0f;color:#fff}
-#loader{position:fixed;inset:0;background:#0f0f0f;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.8s cubic-bezier(.7,0,.3,1)}
-#loader.hide{transform:translateY(-100%)}
-.logo{font-size:36px;font-weight:800;letter-spacing:-1px}.logo span{color:#ff5a2c}
-.bar{width:240px;height:4px;background:#1f1f1f;border-radius:10px;margin-top:26px;overflow:hidden}
-.fill{height:100%;width:0%;background:linear-gradient(90deg,#ff5a2c,#ff8c42);animation:ld 2.5s ease forwards}@keyframes ld{0%{width:0%}80%{width:90%}100%{width:100%}}
-.sub{color:#555;font-size:10px;letter-spacing:3px;margin-top:14px;font-weight:700}
-#page{max-width:400px;margin:0 auto;padding:18px;display:none;min-height:100vh}#page.show{display:block;animation:fade .5s}@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.head{text-align:center;padding:20px 0 10px}
-.head h1{font-size:28px;line-height:1.05;letter-spacing:-0.5px}.head h1 span{color:#ff5a2c}
-.card{background:#fff;color:#111;border-radius:24px;padding:22px;margin-top:18px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
-.badge{background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:100px;font-size:10px;letter-spacing:1px;font-weight:700}
-.bigNum{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:8px}
-.payRow{display:flex;gap:10px;margin-top:14px}.payRow div{flex:1;background:#111;color:#fff;padding:12px;border-radius:14px;text-align:center;font-weight:700;font-size:13px}
-.how{background:#f7f5f2;border-radius:16px;padding:14px;margin-top:14px}
-.how b{font-size:12px;color:#999;letter-spacing:1px}.how p{font-size:13px;line-height:1.6;margin-top:6px;color:#444}
-.ageBox{background:#161616;border:1px solid #222;border-radius:20px;padding:18px;margin-top:18px}
-select{width:100%;padding:15px;border-radius:14px;border:1px solid #2a2a2a;background:#0f0f0f;color:#fff;font-weight:700;margin-top:12px;font-size:14px}
-.amountBox{background:#ff5a2c;border-radius:16px;padding:16px;text-align:center;margin-top:14px;display:none}
-.amountBox.show{display:block}
-.amountBox b{font-size:24px}
-.btn{width:100%;padding:16px;border-radius:16px;border:none;font-weight:800;font-size:15px;margin-top:12px;cursor:pointer}
-.btnO{background:#ff5a2c;color:#fff}.btnB{background:#fff;color:#111;border:2px solid #111}.btnW{background:#25D366;color:#fff}
-.target{background:#fff;color:#111;border-radius:16px;padding:14px;text-align:center;margin-top:18px;font-weight:700}
-.progress{height:8px;background:#eee;border-radius:10px;margin-top:10px;overflow:hidden}.progress div{height:100%;width:15%;background:#ff5a2c}
-input{width:100%;padding:15px;border-radius:14px;border:2px solid #eee;background:#fafafa;text-align:center;font-weight:800;letter-spacing:1px;margin-top:12px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+h1,h2{font-family:'Fraunces',serif}
+#loader{position:fixed;inset:0;background:#0a0a0a;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s cubic-bezier(.8,0,.2,1)}
+#loader.hide{transform:translateY(-100%);opacity:0}
+.logo{font-size:42px;font-weight:800;letter-spacing:-1.5px;display:flex;align-items:center;gap:10px}
+.logo b{color:#ff4d1c}.ring{width:52px;height:52px;border:3px solid #222;border-top-color:#ff4d1c;border-radius:50%;animation:spin 1s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
+.bar{width:280px;height:4px;background:#1a1a1a;border-radius:100px;margin-top:32px;overflow:hidden;position:relative}
+.fill{position:absolute;inset:0;background:linear-gradient(90deg,#ff4d1c,#ff8a4c,#ff4d1c);background-size:200% 100%;width:0%;animation:ld 2.8s ease forwards, shine 1s linear infinite}@keyframes ld{to{width:100%}}@keyframes shine{to{background-position:200% 0}}
+.sub{color:#555;font-size:10px;letter-spacing:4px;margin-top:18px;font-weight:700}
+.wow{margin-top:24px;background:#111;border:1px solid #222;padding:10px 18px;border-radius:100px;font-size:11px;color:#888;display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 10px #22c55e;animation:pulse 1.2s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+#page{max-width:440px;margin:0 auto;padding:20px;display:none}#page.show{display:block;animation:up .6s ease}@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero{text-align:center;padding:30px 10px}.hero h1{font-size:38px;line-height:.95;letter-spacing:-1px}.hero h1 i{font-style:italic;color:#ff4d1c;font-weight:700}
+.hero p{color:#777;font-size:14px;margin-top:14px;line-height:1.6}
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:22px;margin-top:22px;position:relative;overflow:hidden}
+.glass::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 20%,rgba(255,77,28,.15),transparent 40%);pointer-events:none}
+.num{font-size:36px;font-weight:800;letter-spacing:-1px;margin-top:8px;position:relative}
+.pay2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;position:relative}
+.pay2 div{background:#fff;color:#111;padding:14px;border-radius:18px;text-align:center;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:.2s}
+.pay2 div:active{transform:scale(.97)}
+.steps{background:#0f0f0f;border:1px dashed #222;border-radius:18px;padding:16px;margin-top:16px;position:relative}
+.steps b{font-size:10px;letter-spacing:1.5px;color:#555}.steps p{font-size:13px;color:#aaa;line-height:1.8;margin-top:8px}
+.steps p strong{color:#fff}
+.calcCard{background:#fff;color:#111;border-radius:28px;padding:24px;margin-top:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+select{width:100%;padding:16px;border-radius:16px;border:2px solid #f0f0f0;background:#fafafa;font-weight:700;font-size:14px;margin-top:14px;outline:none}
+.price{margin-top:16px;background:#111;color:#fff;border-radius:20px;padding:18px;text-align:center;position:relative;overflow:hidden;display:none}
+.price.show{display:block;animation:up .4s}.price::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent,rgba(255,77,28,.3),transparent);animation:shineCard 2s infinite}@keyframes shineCard{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.btn{width:100%;padding:18px;border-radius:18px;border:none;font-weight:800;font-size:15px;margin-top:14px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.btn:active{transform:scale(.98)}.btnO{background:#ff4d1c;color:#fff;box-shadow:0 10px 30px rgba(255,77,28,.4)}.btnW{background:#25D366;color:#fff;box-shadow:0 10px 30px rgba(37,211,102,.3)}
+input{width:100%;padding:18px;border-radius:18px;border:2px solid #eee;background:#fafafa;text-align:center;font-weight:800;letter-spacing:2px;margin-top:14px;font-size:16px;outline:none}
+.target{margin-top:22px;background:linear-gradient(180deg,#1a1a1a,#111);border:1px solid #222;border-radius:20px;padding:16px;text-align:center}
+.bar2{height:10px;background:#222;border-radius:100px;margin-top:12px;overflow:hidden}.bar2 div{height:100%;width:32%;background:linear-gradient(90deg,#ff4d1c,#ff8a4c);border-radius:100px;box-shadow:0 0 20px rgba(255,77,28,.6)}
 </style>
 </head>
 <body>
 
 <div id="loader">
-<div class="logo">JOHN'S <span>FAMILY</span></div>
-<div class="sub">FAMILY LINK • KAMPALA</div>
+<div class="logo"><div class="ring"></div> JOHN'S <b>FAMILY</b></div>
+<div class="sub">PRIVATE FAMILY LINK</div>
 <div class="bar"><div class="fill"></div></div>
+<div class="wow"><div class="dot"></div> Secured • Encrypted • Family Only</div>
 </div>
 
 <div id="page">
-<div class="head">
-<div class="badge">🔒 LINK LOCKED</div>
-<h1>Pay <span>50,000</span> to Open<br>Family Link</h1>
-<p style="color:#888;font-size:13px;margin-top:8px;line-height:1.5">We need to contribute 50k together to unlock our family website for everyone.</p>
+<div class="hero">
+<h1>Unlock <i>Home.</i><br>50K to Open.</h1>
+<p>Our family website is built. Contribute 50,000 UGX together to unlock it for everyone. This is our home online ❤️</p>
 </div>
 
-<div class="card">
-<div style="font-size:11px;color:#999;font-weight:700;letter-spacing:1px">SEND MONEY TO:</div>
-<div class="bigNum">0742294974</div>
-<div style="margin-top:4px"><b style="font-size:15px">Names: Nanono Mariam</b></div>
-<div style="color:#666;font-size:13px;margin-top:2px">MTN Mobile Money & Airtel Money</div>
+<div class="glass">
+<div style="font-size:10px;letter-spacing:2px;color:#666;font-weight:700">OFFICIAL PAYMENT • SEND TO:</div>
+<div class="num">0742 294 974</div>
+<div style="margin-top:6px;font-size:15px;font-weight:700">Nanono Mariam <span style="background:#ff4d1c;color:#fff;padding:2px 8px;border-radius:100px;font-size:11px;margin-left:6px">VERIFIED ✓</span></div>
+<div style="color:#666;font-size:13px;margin-top:4px">MTN Mobile Money • Airtel Money • Same Number</div>
 
-<div class="payRow">
-<div>📱 MTN<br>0742294974</div>
-<div>📱 Airtel<br>0742294974</div>
+<div class="pay2">
+<div>📱<br>MTN MoMo<br><small style="font-size:12px;color:#666">0742294974</small></div>
+<div>📱<br>Airtel Money<br><small style="font-size:12px;color:#666">0742294974</small></div>
 </div>
 
-<div class="how">
-<b>HOW TO PAY:</b>
+<div class="steps">
+<b>HOW TO PAY - 30 SECONDS:</b>
 <p>
-1️⃣ Open MTN MoMo / Airtel Money<br>
-2️⃣ Choose Send Money<br>
-3️⃣ Enter number: <b>0742294974</b><br>
-4️⃣ Names will show: <b>Nanono Mariam</b><br>
-5️⃣ Enter amount (check below)<br>
-6️⃣ Confirm & send<br>
-7️⃣ Screenshot and send to Shafic
+<strong>1.</strong> Open <strong>MTN MoMo / Airtel Money</strong><br>
+<strong>2.</strong> Tap <strong>Send Money</strong><br>
+<strong>3.</strong> Number: <strong style="color:#ff4d1c">0742294974</strong><br>
+<strong>4.</strong> Name shows: <strong>Nanono Mariam ✓</strong><br>
+<strong>5.</strong> Enter amount (see below) → Send<br>
+<strong>6.</strong> Screenshot → WhatsApp same number
 </p>
 </div>
 </div>
 
-<div class="ageBox">
-<h3 style="font-size:16px">👇 How much should you pay?</h3>
-<p style="color:#777;font-size:13px;margin-top:4px">Select your age - system will tell you</p>
+<div class="calcCard">
+<h2 style="font-size:22px;letter-spacing:-0.5px">How much do I pay? 💰</h2>
+<p style="color:#777;font-size:13px;margin-top:4px">We made it fair by age</p>
 
-<select id="age" onchange="showAmount()">
-<option value="">-- Select Your Age --</option>
-<option value="young">👶 Young - 18 Years BELOW (Below 18)</option>
-<option value="old">👨‍👩‍👧 Old - 18 Years ABOVE (18 and above)</option>
+<select id="age" onchange="calc()">
+<option value="">👇 Select your age group</option>
+<option value="young">👶 18 YEARS BELOW - Young (Below 18)</option>
+<option value="old">🧔 18 YEARS ABOVE - Elder (18 & above)</option>
 </select>
 
-<div id="amountBox" class="amountBox">
-<div style="font-size:11px;letter-spacing:1px;opacity:.8">YOU SHOULD PAY:</div>
-<b id="amtText">0 UGX</b>
-<div id="amtDet" style="font-size:12px;margin-top:4px;opacity:.9"></div>
-<button class="btn btnW" onclick="sendWA()">📲 Send Payment Proof to Shafic</button>
+<div id="price" class="price">
+<div style="font-size:11px;letter-spacing:2px;opacity:.7">YOUR CONTRIBUTION:</div>
+<b id="amt" style="font-size:26px;position:relative">0 UGX</b>
+<div id="det" style="font-size:12px;margin-top:6px;opacity:.8;position:relative"></div>
+<button class="btn btnW" onclick="wa()" style="position:relative">💬 Send Proof to 0742294974</button>
 </div>
 </div>
 
-<div class="card">
-<div style="font-size:11px;color:#999;font-weight:700;letter-spacing:1px">UNLOCK CODE</div>
-<p style="font-size:13px;color:#666;margin-top:4px">After payment, Shafic sends you code</p>
-<input id="codeInput" placeholder="ENTER CODE HERE">
-<button class="btn btnO" onclick="unlockSite()">UNLOCK FAMILY LINK 🔓</button>
-<button class="btn btnB" onclick="sendWA()">I HAVE PAID</button>
+<div class="calcCard" style="background:#0f0f0f;color:#fff;border:1px solid #222">
+<div style="font-size:10px;letter-spacing:2px;color:#555;font-weight:700">HAVE CODE? UNLOCK HERE:</div>
+<input id="code" placeholder="ENTER CODE" style="background:#111;border-color:#222;color:#fff">
+<button class="btn btnO" onclick="unlock()">UNLOCK FAMILY LINK 🔓</button>
+<button class="btn" style="background:#1a1a1a;color:#fff;border:1px solid #222" onclick="wa()">I HAVE PAID ✅</button>
 
 <div class="target">
-🎯 Target: 50,000 UGX<br>
-<span style="font-size:13px;color:#666">For John's Family Website</span>
-<div class="progress"><div></div></div>
+<div style="font-size:13px">🎯 Total Target: <b style="color:#ff4d1c">50,000 UGX</b></div>
+<div class="bar2"><div></div></div>
+<div style="font-size:11px;color:#555;margin-top:8px">Live • 0742294974 - Nanono Mariam • Admin Shafic</div>
 </div>
 </div>
 
-<div style="text-align:center;color:#555;font-size:11px;padding:24px;line-height:1.5">Admin: Shafic<br>WhatsApp: 0742294972<br>MoMo: 0742294974 - Nanono Mariam<br><br>Made for John's Family ❤️ Kampala 2026</div>
+<div style="text-align:center;color:#444;font-size:10px;letter-spacing:2px;padding:30px 0">JOHN'S FAMILY • KAMPALA • 2026 • MADE WITH LOVE ❤️</div>
 </div>
 
 <script>
-// LOADER
-setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('page').classList.add('show')},2600)
-
-// CODES YOU WILL GIVE THEM
-const CODES = {
-  young: "YOUNG50",   // for 18 below
-  old: "OLD70",       // for 18 above
-  master: "JOHNS50K"  // master after 50k
-};
-
-function showAmount(){
- let v=document.getElementById('age').value, box=document.getElementById('amountBox'), txt=document.getElementById('amtText'), det=document.getElementById('amtDet');
- if(!v) return; box.classList.add('show');
- if(v==='young'){
-   txt.innerText="BELOW 7,000 UGX";
-   det.innerText="Young (18 BELOW) - Pay 3k, 4k, 5k or 6k - Below 7000";
- } else {
-   txt.innerText="7,000 UGX & ABOVE";
-   det.innerText="Old (18 ABOVE) - Pay 7k, 10k, 15k, 20k... 7000 and above";
- }
+setTimeout(()=>{document.getElementById('loader').classList.add('hide');document.getElementById('page').classList.add('show')},3000)
+const CODES={young:"YOUNG50",old:"OLD70",master:"JOHNS50K"};
+function calc(){
+ let v=document.getElementById('age').value, p=document.getElementById('price'), a=document.getElementById('amt'), d=document.getElementById('det');
+ if(!v) return; p.classList.add('show');
+ if(v==='young'){a.innerText="BELOW 7,000 UGX";d.innerText="Young (18 BELOW) → Pay 3,000 / 4,000 / 5,000 / 6,000";}
+ else {a.innerText="7,000 UGX & ABOVE";d.innerText="Old (18 ABOVE) → Pay 7,000 / 10,000 / 15,000+";}
 }
-function sendWA(){
- let age=document.getElementById('age').value;
- let msg = age==='young' ? "Hello Shafic, I am YOUNG (18 BELOW), I have paid BELOW 7000 to 0742294974 Nanono Mariam for family link. Here is screenshot proof." : "Hello Shafic, I am OLD (18 ABOVE), I have paid 7000 and ABOVE to 0742294974 Nanono Mariam for family link. Here is screenshot proof.";
- window.open("https://wa.me/256742294972?text="+encodeURIComponent(msg),"_blank");
+function wa(){
+ let v=document.getElementById('age').value;
+ let msg=v==='young'?"Hi Shafic, I am YOUNG (18 BELOW), I paid BELOW 7000 to 0742294974 Nanono Mariam. Proof attached.":"Hi Shafic, I am OLD (18 ABOVE), I paid 7000 & ABOVE to 0742294974 Nanono Mariam. Proof attached.";
+ window.open("https://wa.me/256742294974?text="+encodeURIComponent(msg),"_blank");
 }
-function unlockSite(){
- let c=document.getElementById('codeInput').value.trim().toUpperCase();
- if(c===CODES.young || c===CODES.old || c===CODES.master){
-   localStorage.setItem('family_ok','yes');
-   alert("✅ Code correct! Welcome to John's Family!");
-   document.body.innerHTML="<div style='min-height:100vh;background:#f7f5f2;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px'><div><h1 style='font-size:42px;color:#111'>🎉 UNLOCKED!</h1><p style='color:#666;margin-top:10px'>Family link is now open for you!</p></div></div>";
- } else {
-   alert("❌ Wrong code! First pay to 0742294974 (Nanono Mariam), then send proof to Shafic 0742294972 on WhatsApp to get code.");
- }
+function unlock(){
+ let c=document.getElementById('code').value.trim().toUpperCase();
+ if(c===CODES.young||c===CODES.old||c===CODES.master){alert("✅ WOW! Welcome Home! Family Link Unlocked! ❤️");}
+ else alert("❌ Wrong code! Pay to 0742294974 Nanono Mariam then WhatsApp proof to SAME number 0742294974");
 }
 </script>
 </body>
-  </html>
+                                                                   </html>
